@@ -1,0 +1,59 @@
+<!-- <view class='top'> </view> -->
+
+<scroll-view class='middle' scroll-y scroll-with-animation>
+
+  <view class='item_div' wx:for="{{all}}">
+  <!-- wx:for="{{message}}" -->
+
+    <block wx:if="{{item.openid==openid_me}}">
+       <!-- 右边-->
+      <view class='item_right'>
+        <view class='icon_part_right'>
+          <image class='icon' src="{{me.avatarUrl}}"></image>
+        </view>
+        <view class='text_part_right'>
+          <text class='text_me_right'>{{item.message}}</text>
+         </view>
+      </view>     
+      
+    </block>
+     
+    <block wx:else>
+        <!-- 左边 -->
+        <view class='item_left'>
+          <view class='icon_part_left'>
+            <image class='icon' src="{{you.icon_url}}"></image>
+          </view>
+          <view class='text_part_left'>
+            <text class='text_me_left'>{{item.message}}</text>
+          </view>
+        </view>
+    </block>
+    
+  </view>
+
+</scroll-view>
+
+<view class='bottom'>
+  <view class='input'>
+    <input class='text' placeholder="输入内容" bindinput='send_text' bindfocus='send_color' bindblur='send_color_1' confirm-type='send'></input> 
+    <button class='send' type='text' style='background-color: {{send}}' bindtap='send'>发送</button>
+  </view>
+  <view class='choose'>
+    <view class='part'>
+      <image class='choose_image' src='../../photo/record.png'></image>
+    </view>
+    <view class='part'>
+      <image class='choose_image' src='../../photo/photo.png'></image>
+    </view>
+    <view class='part'>
+      <image class='choose_image' src='../../photo/camera.png'></image>
+    </view>
+    <view class='part'>
+      <image class='choose_image' src='../../photo/emoji.png'></image>
+    </view>
+    <view class='part'>
+      <image class='choose_image' src='../../photo/jiahao.png'></image>
+    </view>
+  </view>
+</view>

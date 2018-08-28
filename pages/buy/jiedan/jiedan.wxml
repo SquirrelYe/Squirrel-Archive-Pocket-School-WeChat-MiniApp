@@ -1,0 +1,134 @@
+<!--pages/buy/jiedan/jiedan.wxml-->
+<!--pages/buy/xiadan/xiadan.wxml-->
+  <view class="top">
+    <block wx:if="{{id=='1'}}">
+        <text class='yexuan_name'>普通</text>
+    </block>
+     <block wx:if="{{id=='2'}}">
+        <text class='yexuan_name'>快递</text>
+    </block>
+     <block wx:if="{{id=='3'}}">
+        <text class='yexuan_name'>外卖</text>
+    </block>    
+  </view>
+
+  <view class='info'>
+
+    <!--分隔  -->
+      <view class='part_yexuan'>
+      <view class='border1'></view>
+      <!--55-->
+      <view class='cut55'>
+        <view class='icon'>
+          <image class='icon-photo' src="{{user.icon_url}}"></image>
+        </view>
+          <image class='kind' src="{{kind}}"></image>
+
+          <block wx:if="{{user.type=='1'}}">
+             <label class='kind-1'>普通</label>
+          </block>
+          <block wx:if="{{user.type=='2'}}">
+             <label class='kind-1'>快递</label>
+          </block>
+          <block wx:if="{{user.type=='3'}}">
+             <label class='kind-1'>外卖</label>
+          </block>
+         
+          <image class='xiang' src="{{xiang}}"> </image>
+          <label class='xiang-1'>{{xiang_text}}</label>
+        <view class='detail'>
+          <label class='d-1'>{{user.nickname}}</label>
+          <block wx:if="{{user.gander=='1'}}">
+            <image class='sex' src="{{sex1}}"></image>
+          </block>
+          <block wx:if="{{user.gander=='2'}}">
+            <image class='sex' src="{{sex2}}"></image>
+          </block>
+        </view>
+        <label class='d-2'>{{user.details}}</label>
+      </view>
+      <!--45-->
+      <view class='cut45'>
+        <view class='icon'></view>
+        <view class='detail'>
+        <block wx:if="{{user.conditions=='1'}}">
+          <label class='k-1'>未接单</label>
+        </block>
+        <block wx:elif="{{user.conditions=='2'}}">
+          <label class='k-1'>已接单</label>
+        </block>
+        <block wx:elif="{{user.conditions=='3'}}">
+          <label class='k-1'>派送中</label>
+        </block>
+        <block wx:elif="{{user.conditions=='4'}}">
+          <label class='k-1'>已完结</label>
+        </block>
+
+          <image class='yexuan' src='../../../photo/money.png'> </image>
+          <label class='k-1-1'>{{user.money}}元</label>
+          <image class='time' src='../../../photo/time.png'> </image>
+          <label class='k-1-2'>{{user.time}}</label>
+
+        </view>
+        <image class='p-2' src='../../../photo/start.png'></image>
+        <label class='k-2'>{{user.log_from}}</label>
+        <image class='p-2-2' src='../../../photo/end.png'></image>
+        <label class='k-2-2'>{{user.log_to}}</label>
+      </view>
+    </view>
+
+    <view class='ge'></view>
+
+      <!--简要描述  -->
+      <view class='small1'>
+        <label class='text1'>简要描述</label>
+          <text class='yexuan_input'>{{user.details}}
+          </text>
+        <view class='border_info1'></view>
+      </view>
+
+      <!--宝贝地址  -->
+      <view class='small'>
+        <label class='text1'>宝贝地址</label>
+          <text class='yexuan_input'>{{user.log_from}}
+          </text>
+        <view class='border_info'></view>
+      </view>  
+
+      <!--送达地址  -->
+      <view class='small'>
+        <label class='text1'>送达地址</label>
+          <text class='yexuan_input'>{{user.log_to}}
+          </text>
+        <view class='border_info'></view>
+      </view>  
+
+      <!--创建时间  -->
+      <view class='small'>
+        <label class='text1'>创建时间</label>
+          <text class='yexuan_input'>{{user.time}}
+          </text>
+        <view class='border_info'></view>
+      </view> 
+
+      <!--送达时间  -->
+      <view class='small'>
+        <label class='text1'>送达时间</label>
+          <text class='yexuan_input'>{{user.time_log}}
+          </text>
+        <view class='border_info'></view>
+      </view> 
+
+  </view>
+  
+  <block wx:if="{{judge==0}}">
+    <view class="bottom" bindtap='get'>
+      <text class='jiedan'>接单</text>
+    </view>
+  </block>
+   <block wx:elif="{{judge==1}}">
+     <view class="bottom" bindtap='get_jiedan'>
+      <text class='jiedan'>已被接单</text>
+    </view>
+  </block>
+<!--pages/buy/xiadan/xiadan.wxml-->

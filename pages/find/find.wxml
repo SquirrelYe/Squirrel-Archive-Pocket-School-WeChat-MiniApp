@@ -1,0 +1,4 @@
+<!-- pages/find/find.wxml
+<button type="primary" bindtap="primary"> primary </button>
+<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button> -->
+<!-- <label class='yx'>后续迭代开放</label>  -->

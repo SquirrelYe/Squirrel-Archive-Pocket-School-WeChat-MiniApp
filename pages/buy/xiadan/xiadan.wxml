@@ -1,0 +1,108 @@
+<!--pages/buy/xiadan/xiadan.wxml-->
+  <view class="top">
+    <block wx:if="{{type=='1'}}">
+        <text class='name'>普通</text>
+    </block>
+     <block wx:if="{{type=='2'}}">
+        <text class='name'>快递</text>
+    </block>
+     <block wx:if="{{type=='3'}}">
+        <text class='name'>外卖</text>
+    </block>    
+  </view>
+
+  <view class='info'>
+
+    <view class='ge'></view>
+    
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="section">
+            <block wx:if="{{type=='1'}}">
+              <textarea placeholder="对于宝贝的相关细节信息，以及相关要求（选填，此信息仅对接单人可见）" class='details' auto-focus    type='text' placeholder-class='placeholder' bindblur='d1'>
+              </textarea>
+            </block>
+            <block wx:if="{{type=='2'}}">
+              <textarea placeholder="请将快递公司所发的短信粘贴在此处(此信息仅对接单人可见）" class='details' auto-focus                   type='text' placeholder-class='placeholder' bindblur='d1'>
+              </textarea>
+            </block>
+            <block wx:if="{{type=='3'}}">
+              <textarea placeholder="对小吃的味道要求甜？辣？咸？具体小店名称？(此信息仅对接单人可见）" class='details' auto-focus    type='text' placeholder-class='placeholder' bindblur='d1'>
+              </textarea>
+            </block>
+          
+        </view>
+      </view>    
+    </view>
+
+    <view class='border'></view>
+
+    
+      <!--佣金  -->
+      <view class='small'>
+        <label class='text'>佣金</label>
+        <view class='money'>
+          <image src='../../../photo/money-choose.png' class='money-choose'></image>
+          <label class='sub' bindtap='sub' style='color:{{color}}'>－</label>
+          <label class='money_money'>{{money}}</label>
+          <label class='add' bindtap='add'>＋</label>
+        </view>
+        <view class='border_info'></view>
+      </view>
+
+      <!--简要描述  -->
+      <view class='small'>
+        <label class='text'>简要描述</label>
+          <input class='input' placeholder='简述物品的大小、轻重等信息' placeholder-class='placeholder-1' bindblur='d2'>
+          </input>
+        <view class='border_info'></view>
+      </view>
+
+      <!--取件地址  -->
+      <view class='small'>
+        <label class='text'>取件地址</label>
+          <input class='input' placeholder='请输入宝贝的位置' placeholder-class='placeholder-1' bindblur='d3'>
+          </input>
+        <view class='border_info'></view>
+      </view>
+
+      <view class='border'></view>
+
+      <!--联系人  -->
+      <view class='small'>
+        <label class='text'>联系人</label>
+          <input class='input' placeholder='姓名，仅对接单人可见' placeholder-class='placeholder-1' bindblur='d4'>
+          </input>
+        <view class='border_info'></view>
+      </view>
+
+      <!--手机号  -->
+      <view class='small'>
+        <label class='text'>手机号</label>
+          <input class='input' placeholder='手机号，仅对接单人可见' placeholder-class='placeholder-1' bindblur='d5'>
+          </input>
+        <view class='border_info'></view>
+      </view>
+
+      <!--配送地址  -->
+      <view class='small'>
+        <label class='text'>配送地址</label>
+          <input class='input' placeholder='请输入需要送达的位置' placeholder-class='placeholder-1' bindblur='d6'>
+          </input>
+        <view class='border_info'></view>
+      </view>
+
+      <!--配送时间  -->
+      <view class='small'>
+        <label class='text'>配送时间</label>
+          <input class='input' placeholder='备注，主人方便收取的时间' placeholder-class='placeholder-1' bindblur='d7'>
+          </input>
+        <view class='border_info'></view>
+      </view>
+
+  </view>
+
+  <view class="bottom" bindtap='buy'>
+    <text class='fabu'>发布</text>
+  </view>
+<!--pages/buy/xiadan/xiadan.wxml-->

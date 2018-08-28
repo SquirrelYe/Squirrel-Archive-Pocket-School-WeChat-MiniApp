@@ -1,0 +1,99 @@
+
+
+.middle{
+  width: 100%;
+  height: 800rpx;
+}
+.item{
+  width: 100%;
+  height: 110rpx;
+}
+
+.left{
+  width: 18%;
+  height: 100%;
+  float: left;
+
+}
+.img{
+  width: 50%;
+  height: 60%;
+  margin-left: 20%;
+  margin-top: 16%; 
+  border-radius: 100rpx; 
+}
+
+.text{
+  width: 60%;
+  height: 100%;
+  float: left;
+  border: 1 rpx solid white;
+}
+.shang{
+  width: 100%;
+  height: 50%;
+  border: 0px;
+}
+.nick{
+  font-size: 30rpx;
+  color: #262626;
+  position: absolute;
+  margin-top: 10rpx;
+}
+.xia{
+  width: 100%;
+  height: 50%;
+  border: 1 rpx solid white;
+}
+.justnow{
+  font-size: 25rpx;
+  color: #a6a6a6;
+  position: absolute;
+  margin-top: 6rpx;
+}
+
+.right{
+  width: 22%;
+  height: 100%;
+  float: left;
+  border: 1 rpx solid white;
+}
+.shang1{
+  width: 100%;
+  height: 50%;
+  border: 1 rpx solid white;
+}
+.time{
+  font-size: 25rpx;
+  color: #a6a6a6;
+  margin-left: 16rpx;
+  position: absolute;
+  margin-top: 25rpx;
+}
+.xia1{
+  width: 100%;
+  height: 50%;
+  border: 1 rpx solid white;
+}
+.yuan{
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  margin-top: 10rpx;
+  right: 25rpx;
+}
+.yuan_text{
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  font-size: 22rpx;
+  margin-top: 5rpx;
+  color: white;
+  right: 19rpx;
+}
+
+.border{
+  height: 1rpx;
+  width: 100%;
+  background-color: #262626
+}

@@ -1,0 +1,11 @@
+ <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange='l2'>
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" bindtap='l1' data-index="{{index}}"/>
+    </swiper-item>
+  </block>
+</swiper> 
+
+ <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='getuser' wx:if="{{show}}" >
+ 立即体验</button> 

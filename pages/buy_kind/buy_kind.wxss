@@ -1,0 +1,72 @@
+/* pages/buy_kind.wxss */
+@import "../../ripples.wxss";
+.top{
+  height: 260rpx;
+  background-color: white;
+  margin-top: 40rpx;  
+  border: 0px solid #ffffff;
+}
+.part1{
+  width: 25%;
+  height: 260rpx;
+  background-color: white;
+  margin-left: 9%;
+  float: left;
+  border: 0rpx solid #ffffff;
+  animation: bounceIn 1s;
+}
+.part2{
+  width: 25%;
+  height: 260rpx;
+  background-color: white;
+  float: left;
+  border: 0rpx solid #ffffff;
+  animation: bounceIn 1s;
+}
+.part3{
+  width: 25%;
+  height: 260rpx;
+  background-color: white;
+  float: left;
+  border: 0rpx solid #ffffff;
+  animation: bounceIn 1s;
+}
+.image{
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 70rpx;
+  margin-left: 70rpx;
+  border: 0 solid #ff0000;
+  border-radius: 200rpx;
+  background-color: #ffffff;
+}
+.text{
+  left: 0rpx;
+  margin-left: 90rpx;
+  color: black;
+  font-size: 30rpx
+}
+.bottom{
+  width: 33%;
+  height: 260rpx;
+  background-color: white;
+  border: 0rpx solid #ffffff;
+  margin-top:560rpx;
+  margin-left: 255rpx;
+  /* animation: fadeInDown 1s; */
+}
+.image_bottom{
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 70rpx;
+  margin-left: 70rpx;
+  border: 0 solid #ff0000;
+  border-radius: 200rpx;
+  background-color: #ffffff;
+}
+.text_bottom{
+  left: 0rpx;
+  margin-left: 92rpx;
+  color: black;
+  font-size: 26rpx
+}

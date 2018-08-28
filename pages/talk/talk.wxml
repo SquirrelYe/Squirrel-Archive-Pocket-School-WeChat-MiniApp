@@ -1,0 +1,40 @@
+<!--pages/message/message.wxml-->
+<view class='top'></view>
+
+<scroll-view class='middle'>
+  <!--单个聊天人  -->
+  <view wx:for="{{message}}">
+    <view class='item' bindtap='send' data-index="{{index}}">
+    
+      <view class='left'>
+        <image src="{{item.icon}}" class='img'></image>
+      </view>
+      <view class='text'>
+        <view class='shang'>
+          <label class='nick'>{{item.nick}}</label>
+        </view>
+        <view class='xia'>
+          <label class='justnow'>{{item.justnow}}</label>
+        </view>
+      </view>
+
+      <view class='right'>
+        <view class='shang1'>
+          <label class='time'>{{item.time}}</label>        
+        </view>
+        <view class='xia1'>
+          <image src='../../photo/message_sum.png' class='yuan'></image> 
+          <label class='yuan_text'>{{item.noread}}</label>       
+        </view>
+      </view>
+    </view>
+    <view class='border'></view>
+  </view>
+
+</scroll-view>
+
+输入openid：
+<input bindblur='ceshi' style='border:2rpx solid black'></input>
+<button bindtap='ceshi1'>测试</button>
+
+<view class='bottom'></view>

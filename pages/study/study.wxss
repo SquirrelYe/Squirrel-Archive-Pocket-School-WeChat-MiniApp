@@ -1,0 +1,8 @@
+/* pages/study/study.wxss */
+@import "../../ripples.wxss";
+.css{
+  animation: hinge 1s ;
+}
+.css1{
+  animation: bounce 3s ;
+}

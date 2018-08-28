@@ -1,0 +1,138 @@
+<!--index.wxml-->
+<view class="top">
+  <image src='../../photo/school.png' id='school'></image>
+  <!-- <text class='name'> 天津城建大学</text> -->
+  <picker bindchange="bindPickerChange" value="{{school_index}}" range="{{array}}" class='picker'>
+    <view class="name">
+      学校：{{array[school_index]}}
+    </view>
+  </picker>
+  <image src='../../photo/ling.png' id='ling'></image>
+</view>
+
+<view>
+  <!-- <scroll-view class='show'> -->
+  <view>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="scaleToFill"/>
+          <!--图片格式1080*160  -->
+        </swiper-item>
+      </block>
+    </swiper>
+     <image src='../../photo/add.png' class='add' bindtap='code'></image> 
+     <label class='add_text' bindtap='code'>{{add_text}}</label>
+  </view>
+
+
+  <!-- <image class='b1' src='../../photo/school.png' bindtap='onPullDownRefresh'></image>
+  </scroll-view>   -->
+
+  <view class='attention'>
+    <image class='p1' src='../../photo/attention.png'></image>
+    <text class='t1'>{{attention}}</text>
+  </view>
+
+  <view class='border'></view>
+
+  <view class='choose'>
+    <view class='c1' bindtap='choose1' style='color:{{color1}}'>
+      <text>全部</text>
+      <view class='border-item' style='background-color:{{color_item1}}'></view>
+    </view>
+    <view class='c1' bindtap='choose2' style='color:{{color2}}'>
+      <text>普通</text>
+      <view class='border-item' style='background-color:{{color_item2}}'></view>
+    </view>
+    <view class='c1' bindtap='choose3' style='color:{{color3}}'>
+      <text>快递</text>
+      <view class='border-item' style='background-color:{{color_item3}}'></view>
+    </view>
+    <view class='c1' bindtap='choose4' style='color:{{color4}}'>
+      <text>外卖</text>
+      <view class='border-item' style='background-color:{{color_item4}}'></view>
+    </view>
+  </view>
+
+  <scroll-view scroll-y class='sc1' bindscrolltolower="fresh">
+    <!--分隔  -->
+    
+    <view class="item" wx:for="{{users}}" >
+      <!--分隔  -->
+      <view class='part' bindtap='btnClick' data-index="{{index}}">
+      <view class='border1'></view>
+      <!--55-->
+      <view class='cut55'>
+        <view class='icon'>
+          <image class='icon-photo' src="{{item.icon_url}}"></image>
+        </view>
+          <image class='kind' src="{{kind}}"></image>
+
+          <block wx:if="{{item.type=='1'}}">
+             <label class='kind-1'>普通</label>
+          </block>
+          <block wx:if="{{item.type=='2'}}">
+             <label class='kind-1'>快递</label>
+          </block>
+          <block wx:if="{{item.type=='3'}}">
+             <label class='kind-1'>外卖</label>
+          </block>
+         
+          <image class='xiang' src="{{xiang}}"> </image>
+          <label class='xiang-1'>{{xiang_text}}</label>
+        <view class='detail'>
+          <label class='d-1'>{{item.nickname}}</label>
+          <block wx:if="{{item.gander=='1'}}">
+            <image class='sex' src="{{sex1}}"></image>
+          </block>
+          <block wx:if="{{item.gander=='2'}}">
+            <image class='sex' src="{{sex2}}"></image>
+          </block>
+        </view>
+        <label class='d-2'>{{item.details}}</label>
+      </view>
+      <!--45-->
+      <view class='cut45'>
+        <view class='icon'></view>
+        <view class='detail'>
+        <block wx:if="{{item.conditions=='1'}}">
+          <label class='k-1'>未接单</label>
+        </block>
+        <block wx:elif="{{item.conditions=='2'}}">
+          <label class='k-1'>已接单</label>
+        </block>
+        <block wx:elif="{{item.conditions=='3'}}">
+          <label class='k-1'>派送中</label>
+
+        </block>
+        <block wx:elif="{{item.conditions=='4'}}">
+          <label class='k-1'>已完结</label>
+        </block>
+        <!-- <block wx:else>
+          <view class="bg_red"></view>
+        </block> -->
+
+          <image class='money' src='../../photo/money.png'> </image>
+          <label class='k-1-1'>{{item.money}}元</label>
+          <image class='time' src='../../photo/time.png'> </image>
+          <label class='k-1-2'>{{item.time}}</label>
+
+        </view>
+        <image class='p-2' src='../../photo/start.png'></image>
+        <label class='k-2'>{{item.log_from}}</label>
+        <image class='p-2-2' src='../../photo/end.png'></image>
+        <label class='k-2-2'>{{item.log_to}}</label>
+      </view>
+    </view>
+    </view>
+  </scroll-view>
+
+
+  <!-- <view class='choose_bottom' bindtap='bindViewTap'>
+    <image src='../../photo/buy_1.png' class='yuan'></image>
+  </view> -->
+
+
+
+</view>

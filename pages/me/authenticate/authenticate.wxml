@@ -1,0 +1,52 @@
+<!--pages/authenticate/authenticate.wxml-->
+<view class="top">
+    <block wx:if="{{id=='1'}}">
+        <text class='yexuan_name'>实名认证</text>
+    </block>
+     <block wx:if="{{id=='2'}}">
+        <text class='yexuan_name'>快递</text>
+    </block>
+     <block wx:if="{{id=='3'}}">
+        <text class='yexuan_name'>外卖</text>
+    </block>    
+  </view>
+
+  <view class='info'>
+      <view class="y1" >
+        <label class='y2'>当前状态</label>
+        <label class='y4'>{{renzheng}}</label>
+      </view>
+
+      <view class="i1" >
+        <!-- <view class='border_info3'></view> -->
+        <label class='i2'>姓名：</label>
+        <input class='i3' placeholder="请输入你的真实姓名" placeholder-class='xm' confirm-type='next' bindblur='d1'></input>
+      </view>  
+      <view class="i1_1" >
+        <!-- <view class='border_info3'></view> -->
+        <label class='i2'>学号：</label>
+        <input class='i3' placeholder="请输入你的真实学号" placeholder-class='xm' confirm-type='next' bindblur='d2'></input>
+      </view> 
+      <view class="i1_1" >
+        <!-- <view class='border_info3'></view> -->
+        <label class='i2'>手机号：</label>
+        <input class='i3' placeholder="请输入你的真实手机号" placeholder-class='xm' confirm-type='next' bindblur='d3'></input>
+      </view> 
+
+      <view class='school_card' bindtap='choose_img'>
+        <image src='../../../photo/school_card.png' class='school_img'></image>
+        <text class='school_text'>请上传你的学生证照片</text>
+      </view>
+
+      <view class='school_card1'>
+        <text class='rz_1'>认证须知</text>
+        <text class='rz'>\n我们是校园专属生活服务应用，为了保证学生身份真实性。我们需要您配合上传学生身份的证件照片，包括学生卡、学生证、录取通知书和毕业证均可。\nTips：认证审核过程中遇到任何问题请联系公众号管理人员后台审核。</text>
+      </view>     
+      
+
+
+  </view>    
+
+   <view class="bottom" bindtap='renzheng'>
+    <text class='fabu'>认证</text>
+  </view>

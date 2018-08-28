@@ -1,0 +1,81 @@
+<!--pages/me/orders/orders.wxml-->
+
+<!-- selector -->
+<view class='selector'>
+  <view class='selector_part' bindtap='choose1'>
+      <view class='selector_txt' style='color:{{color1}}'>全部</view>
+      <view class='border-item' style='background-color:{{color_item1}}'></view>
+  </view>
+  <view class='selector_part' bindtap='choose2' >
+      <view class='selector_txt' style='color:{{color2}}'>已接单</view>
+      <view class='border-item' style='background-color:{{color_item2}}'></view>
+  </view>
+  <view class='selector_part' bindtap='choose3'>
+      <view class='selector_txt'  style='color:{{color3}}'>已取货</view>
+      <view class='border-item' style='background-color:{{color_item3}}'></view>
+  </view>
+  <view class='selector_part' bindtap='choose4'>
+      <view class='selector_txt'  style='color:{{color4}}'>已送达</view>
+      <view class='border-item' style='background-color:{{color_item4}}'></view>
+  </view>
+  <view class='selector_part' bindtap='choose5'>
+      <view class='selector_txt'  style='color:{{color5}}'>已评价</view>
+      <view class='border-item' style='background-color:{{color_item5}}'></view>
+  </view>
+</view>
+
+<!-- items -->
+<scroll-view class='items_scroll'>
+  <view class='items_item' wx:for="{{otrder_test}}" wx:key="item">
+    <view class='apart'></view>
+    <view class='p1'>
+      <block wx:if="{{item.types=='1'}}">
+        <image class='title_icon' src='../../../photo/me_thing.png'></image>
+      </block>
+       <block wx:if="{{item.types=='2'}}">
+        <image class='title_icon' src='../../../photo/me_kuaidi.png'></image>
+      </block>
+       <block wx:if="{{item.types=='3'}}">
+        <image class='title_icon' src='../../../photo/me_waimai.png'></image>
+      </block>
+      <view class='title_txt'>{{item.name}}</view>
+      <block wx:if="{{item.condition=='0'}}">
+        <view class='title_condition'>大使未接单</view>
+      </block>
+      <block wx:if="{{item.condition=='1'}}">
+        <view class='title_condition'>大使已接单</view>
+      </block>
+      <block wx:if="{{item.condition=='2'}}">
+        <view class='title_condition'>大使已取货</view>
+      </block>
+      <block wx:if="{{item.condition=='3'}}">
+        <view class='title_condition'>大使已送达</view>
+      </block>
+      <block wx:if="{{item.condition=='4'}}">
+        <view class='title_condition'>订单已评价</view>
+      </block>
+    </view>
+    <view class='p2'>
+      <image class='main_icon' src='{{item.icon}}'></image>
+      <view class='main_txt'>{{item.details}}</view>
+      <view class='main_others'>
+        <view class='main_others_money'>￥{{item.money}}</view>
+        <view class='main_others_sum'>{{item.sum}}</view>
+      </view>
+    </view>
+    <view class='p3'>
+      <view class='sum1'>
+        <view class='time'>创建时间：{{item.time}}</view>
+        <view class='sum'>共{{item.sum}}件商品，合计：￥{{item.money}}</view>
+      </view>
+    </view>
+    <view class='p4'>
+      <block wx:if="{{item.condition=='1'||item.condition=='2'||item.condition=='3'||item.condition=='4'}}">
+        <view class='bottom'>联系同学</view>
+      </block>
+      <block wx:if="{{item.condition=='0'||item.condition=='1'}}">
+        <view class='bottom'>取消订单</view>
+      </block>
+    </view>
+  </view>
+</scroll-view>

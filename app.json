@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/me/cus_orders/cus_orders",
+    "pages/me/orders/orders",
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/me/me",
+    "pages/me/callback/callback",
+    "pages/me/cus_checks/cus_checks",
+    "pages/study/study",
+    "pages/message/message",
+    "pages/find/find",
+    "pages/text/text",
+    "pages/buy/xiadan/xiadan",
+    "pages/buy/jiedan/jiedan",
+    "pages/talk/talk",
+    "pages/buy_kind/buy_kind",
+    "pages/me/authenticate/authenticate"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "borderStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "校园",
+        "iconPath": "photo/kuaidi1.png",
+        "selectedIconPath": "photo/kuaidi2.png"
+      },
+      
+      {
+        "pagePath": "pages/buy_kind/buy_kind",
+        "text": "发布",
+        "iconPath": "photo/add_menu.png",
+        "selectedIconPath": "photo/add_menu_1.png"
+      },
+     
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "photo/me1.png",
+        "selectedIconPath": "photo/me2.png"
+      }
+    ]
+  }
+}

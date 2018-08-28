@@ -1,0 +1,5 @@
+/**index.wxss**/
+.yx{
+  color: #999999;
+  font-size: 40rpx;
+}

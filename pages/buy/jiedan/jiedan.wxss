@@ -1,0 +1,91 @@
+/* pages/buy/jiedan/jiedan.wxss */
+@import "../../../lib/weui.wxss";
+@import "../xiadan/xiadan.wxss";
+@import "../../index/index.wxss";
+.yexuan{
+  margin-top: 12px;
+  height: 19px;
+  width: 19px;
+  position: absolute; 
+  float: right; 
+  margin-left: 70px; 
+}
+.part_yexuan{
+  width: 98%;
+  margin-left: 1%;
+  height: 160px;
+  background-color: #707070;
+  margin-top: 2px;
+}
+.yexuan_name{
+  position: absolute;
+  margin-left: 191px;
+  font-size: 15px;
+  color: white;
+  clear: both;  
+}
+.yexuan_input{
+  position: absolute;
+  margin-top: 16px;
+  margin-left: 28%;  
+  width: 70%;
+  height: auto;
+  font-size: 13px;
+  color: #666666;
+}
+.small1{
+  background-color: #ffffff;
+  width: 98%;
+  margin-left: 1%;
+  height: 60px;
+}
+.border_info1{
+  position: absolute; 
+  height: 1px;
+  width: 97%;
+  margin-left: 3%;
+  border-bottom: 1px solid #D9D9D9;
+   margin-top: 60px; 
+  margin-bottom: 0;
+  
+}
+.text1{
+  position: absolute;
+  width: 20%;
+  margin-left: 3%;
+  font-size: 17px;
+  color: #666666;
+  margin-top: 14px;
+}
+.k-1-1{
+  margin-top: 13px;
+  margin-left: 170rpx;
+  color: #666666;
+  /* float:left;  */
+  position: absolute;
+  font-size: 12px;
+}
+.bottom{
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottom_jiedan{
+  width: 100%;
+  height: 40px;
+  background-color: #595959;
+  position: absolute;
+  bottom: 0;
+}
+.jiedan{
+  position: absolute;
+  font-size: 18px;
+  color: black;
+  background-color: white;
+  clear: both;  
+}

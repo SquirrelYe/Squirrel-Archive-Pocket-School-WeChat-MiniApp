@@ -1,0 +1,7 @@
+<!--pages/study/study.wxml-->
+<view class="css">bounce</view>
+
+<block wx:if="{{dis=='none'}}">
+  <view class='css1'>未接单</view>
+</block>
+<button bindtap='tap'>ceshi</button>

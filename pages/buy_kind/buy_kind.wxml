@@ -1,0 +1,32 @@
+<!--pages/buy_kind.wxml-->
+<block wx:if="{{dis_part=='1'}}">
+  <view class='top'>
+    <view class='part1' bindtap='putong'>
+      <image class='image' src='../../photo/pt.png'>
+      </image>
+      <label class='text'>普通
+      </label>
+    </view>
+
+    <view class='part2' bindtap='kuaidi'>
+      <image class='image'src='../../photo/wm.png'>
+      </image>
+      <label class='text'>快递
+      </label>
+    </view>
+
+    <view class='part3' bindtap='waimai'>
+      <image class='image'src='../../photo/kd.png'>
+      </image>
+      <label class='text'>外卖
+      </label>
+    </view>
+  </view>
+
+  <view class='bottom' bindtap='quit'>
+    <image class='image_bottom' src='../../photo/qx.png'>
+    </image>
+    <label class='text_bottom'>取消
+    </label>
+  </view>
+</block>

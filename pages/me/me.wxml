@@ -1,0 +1,134 @@
+<!--pages/me/me.wxml-->
+
+  <view class='info'>
+
+    <!--分隔开始 -1 -->
+      <view class='part_yexuan'>
+      <!-- <view class='border1'></view> -->
+      <!--60-->
+      <view class='cut60'>
+        <view class='icon'>
+          <image class='icon-photo' src="{{user.avatarUrl}}"></image>
+        </view>
+        <view class='detail'>
+          <label class='d-1' style='color:black'>{{user.nickName}}</label>
+          <block wx:if="{{user.gender=='1'}}">
+            <image class='sex' src="{{sex1}}"></image>
+          </block>
+          <block wx:if="{{user.gender=='2'}}">
+            <image class='sex' src="{{sex2}}"></image>
+          </block> 
+          
+        </view>
+         <view class='about'>
+          <text class='sign'>{{sign}}</text>
+         </view>
+         <image src='../../photo/jiantou.png' class='edit'></image>
+      </view>
+      <!--40  -->
+      <view class='cut40'>
+        <view class='p1'>
+          <label class='p1_1'>{{friends}}</label>
+          <label class='p1_2'>好友</label>
+        </view>
+
+        <view class='p10'>
+          <label class='p1_1'>{{add}}</label>
+          <label class='p1_2'>关注</label>
+        </view>
+
+        <view class='p10'>
+          <label class='p1_1'>{{fan}}</label>
+          <label class='p1_2'>粉丝</label>
+        </view>
+      
+        </view>
+      </view>
+      
+    <!--分隔结束-1  -->
+      <view class='border_fenge_1'></view>
+      <!--分隔开始-2  -->
+      <view class="content-container">
+      
+      <view class="pick-header" bindtap="onPickHeaderClick">
+        <label class='item-1'>校园大使</label>
+        <label class='item-2'>记录校园时光</label>
+        <image src='{{zhankai}}' class='item-3'></image>
+      </view>
+  
+      <view class="pick-container" animation="{{animationData}}" >
+        <view class='y1' bindtap='nv_renzheng'>
+          <label class='y2'>校园认证</label>
+          <image src='../../photo/jiantou.png' class='y3'></image>
+        </view>
+
+        <view class='border_info2'></view>
+
+        <view class='y1' bindtap='nv_orders'>
+          <label class='y2'>我的订单</label>
+          <image src='../../photo/jiantou.png' class='y3'></image>
+        </view>
+
+        <view class='border_info2'></view>
+
+        <view class='y1' bindtap='nv_callback'>
+          <label class='y2'>校园评价</label>
+          <image src='../../photo/jiantou.png' class='y3'></image>
+        </view>
+      </view>
+    
+    </view>
+    <!--分隔结束-2  -->
+    <!--分隔开始-3  -->
+    <view class='part-3' animation="{{animationData1}}">
+
+      <view class='border_info4'></view>
+
+      <view class="y1" bindtap='nv_cus_orders'>
+        <label class='y2'>我的账单</label>
+        <label class='y4'>早起的鸟儿有虫吃</label>
+        <image src='../../photo/jiantou.png' class='y3'></image>
+      </view>
+
+      <view class="y1" bindtap='nv_cus_checks'>
+        <view class='border_info3'></view>
+        <label class='y2'>账单明细</label>
+        <label class='y4'>一块海绵，挤挤总能出水的</label>
+        <image src='../../photo/jiantou.png' class='y3'></image>
+      </view>
+
+      <view class='border_info4'></view>
+
+      <view class="y1" bindtap='school_details'>
+        <label class='y2'>学校信息</label>
+        <label class='y4'>说说看，你来自哪儿</label>
+        <image src='../../photo/jiantou.png' class='y3'></image>
+      </view>
+
+      <view class="y1" bindtap='classmates'>
+        <view class='border_info3'></view>
+        <label class='y2'>同窗四年</label>
+        <label class='y4'>及尔偕老</label>
+        <image src='../../photo/jiantou.png' class='y3'></image>
+      </view>
+
+        <view class='border_info4'></view>
+
+      <view class="y1" bindtap='bug'>
+        <label class='y2'>我的评价</label>
+        <label class='y4'>来，说说对我们期许</label>
+        <image src='../../photo/jiantou.png' class='y3'></image>
+      </view>
+
+      <view class="y1" bindtap='about'>
+        <view class='border_info3'></view>
+        <label class='y2'>服务中心</label>
+        <label class='y4'>^_^猜猜看，里面有啥</label>
+        <image src='../../photo/jiantou.png' class='y3'></image>
+      </view>
+    
+    </view>
+    <!--分隔结束-3  -->
+
+  </view>
+
