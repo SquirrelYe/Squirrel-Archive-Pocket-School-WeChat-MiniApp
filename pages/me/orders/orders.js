@@ -1,3 +1,4 @@
+const app = getApp()
 // pages/me/orders/orders.js
 Page({
 
@@ -56,10 +57,14 @@ Page({
 
   enter: function () {
     var that = this;
+    that.setData({
+      order: ''
+    })
+    wx.showNavigationBarLoading()
     //发起网络请求
     wx.request({
       //获取openid接口  
-      url: 'http://localhost:11111/taker',
+      url: `${app.globalData.url}/taker`,
       data: {
         judge: '0',
         openid_tak: '2'
@@ -73,6 +78,7 @@ Page({
         that.setData({
           order: res.data
         })
+        wx.hideNavigationBarLoading()
       },
       fail: function (res) {
         console.log(res.data);
@@ -81,11 +87,15 @@ Page({
   },
 
   fresh: function (judge_item) {
-    var that = this;
+    var that = this; 
+    that.setData({
+      order: ''
+    })
+    wx.showNavigationBarLoading()
     //发起网络请求
     wx.request({
       //获取openid接口  
-      url: 'http://localhost:11111/taker',
+      url: `${app.globalData.url}/taker`,
       data: {
         judge: '2',
         openid_tak: '2',
@@ -100,6 +110,105 @@ Page({
         that.setData({
           order: res.data
         })
+        wx.hideNavigationBarLoading()
+      },
+      fail: function (res) {
+        console.log(res.data);
+      }
+    })
+  },
+
+  ordAccept:function(){
+    var that = this;
+    //发起网络请求
+    wx.request({
+      //获取openid接口  
+      url: `${app.globalData.url}/taker`,
+      data: {
+        'judge': '3',
+        'number': '1'
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
+        that.enter();
+      },
+      fail: function (res) {
+        console.log(res.data);
+      }
+    })
+  },
+
+  ordArrive:function(){
+    var that = this;
+    //发起网络请求
+    wx.request({
+      //获取openid接口  
+      url: `${app.globalData.url}/taker`,
+      data: {
+        'judge': '4',
+        'number': '1'
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
+        that.enter();
+      },
+      fail: function (res) {
+        console.log(res.data);
+      }
+    })
+  },
+  
+  contactCustomer:function(){
+    var that = this;
+    //发起网络请求
+    wx.request({
+      //获取openid接口  
+      url: `${app.globalData.url}/taker`,
+      data: {
+        'judge': '6',
+        'number': '1'
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
+        wx.makePhoneCall({
+          phoneNumber: res.data[0].cus_phone
+        })
+      },
+      fail: function (res) {
+        console.log(res.data);
+      }
+    })
+  },
+
+  deleteOrderByNumber:function(){
+    var that = this;
+    //发起网络请求
+    wx.request({
+      //获取openid接口  
+      url: `${app.globalData.url}/taker`,
+      data: {
+        'judge': '1',
+        'number': '1',
+        'openid_tak':'2'
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
       },
       fail: function (res) {
         console.log(res.data);
@@ -135,10 +244,11 @@ Page({
 
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading(),
-      //添加刷新之后的信息。
-      setTimeout(function () {
-        wx.hideNavigationBarLoading()
-      }, 1000) 
+    //添加刷新之后的信息。
+    setTimeout(function () {
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
+    }, 1000) 
     var judge_item = this.data.judge_item;
     if (judge_item == '-1') {
       this.enter();
@@ -146,19 +256,19 @@ Page({
     }
     if (judge_item == '1') {
       this.fresh(judge_item);
-      console.log(judge_item, '-->', '待接单')
+      console.log(judge_item, '-->', '已接单')
     }
     if (judge_item == '2') {
       this.fresh(judge_item);
-      console.log(judge_item, '-->', '待取货')
+      console.log(judge_item, '-->', '已取货')
     }
     if (judge_item == '3') {
       this.fresh(judge_item);
-      console.log(judge_item, '-->', '待送达')
+      console.log(judge_item, '-->', '已送达')
     }
     if (judge_item == '4') {
       this.fresh(judge_item);
-      console.log(judge_item, '-->', '待评价')
+      console.log(judge_item, '-->', '已评价')
     }
   },
 

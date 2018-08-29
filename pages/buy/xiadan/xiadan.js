@@ -78,8 +78,9 @@ Page({
       // }, 2000)  
 
       wx.request({
-        url: 'https://www.yexuan.site/Logistics_yx/xiadan', //仅为示例，并非真实的接口地址
+        url: `${app.globalData.url}/xiadan`, //仅为示例，并非真实的接口地址
         data: {
+          judge:'0',
           
           // 物流信息
           type: this.data.type,
@@ -90,6 +91,7 @@ Page({
           time: this.data.time_now,
           time_log: this.data.time_log,
           conditions: this.data.conditions,
+          sum:'1',
 
           // 用户信息
           icon_url: this.data.icon_url,

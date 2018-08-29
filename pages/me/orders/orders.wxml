@@ -41,16 +41,16 @@
       </block>
       <view class='title_txt'>{{item.cus_name}}</view>
       <block wx:if="{{item.conditions=='0'}}">
-        <view class='title_condition'>大使未接单</view>
+        <view class='title_condition'>未接单</view>
       </block>
       <block wx:if="{{item.conditions=='1'}}">
-        <view class='title_condition'>{{item.tak_name}}大使已接单</view>
+        <view class='title_condition'>已接单</view>
       </block>
       <block wx:if="{{item.conditions=='2'}}">
-        <view class='title_condition'>{{item.tak_name}}大使已取货</view>
+        <view class='title_condition'>已取货</view>
       </block>
       <block wx:if="{{item.conditions=='3'}}">
-        <view class='title_condition'>{{item.tak_name}}大使已送达</view>
+        <view class='title_condition'>已送达</view>
       </block>
       <block wx:if="{{item.conditions=='4'}}">
         <view class='title_condition'>订单已评价</view>
@@ -86,19 +86,19 @@
     </view>
     <view class='p4'>
       <block wx:if="{{item.conditions=='1'}}">
-        <view class='bottom_s'>确认取货</view>
-        <view class='bottom'>联系同学</view>
-        <view class='bottom'>取消订单</view>
+        <view class='bottom_s' bindtap='ordAccept'>确认取货</view>
+        <view class='bottom' bindtap='contactCustomer'>联系同学</view>
+        <view class='bottom' bindtap='deleteOrderByNumber'>取消订单</view>
       </block>
       <block wx:if="{{item.conditions=='2'}}">
-        <view class='bottom_s'>确认送达</view>
-        <view class='bottom'>联系同学</view>
+        <view class='bottom_s' bindtap='ordArrive'>确认送达</view>
+        <view class='bottom' bindtap='contactCustomer'>联系同学</view>
       </block>
       <block wx:if="{{item.conditions=='3'}}">
-        <view class='bottom'>联系同学</view>
+        <view class='bottom' bindtap='contactCustomer'>联系同学</view>
       </block>
       <block wx:if="{{item.conditions=='4'}}">
-        <view class='bottom'>联系同学</view>
+        <view class='bottom' bindtap='contactCustomer'>联系同学</view>
       </block>
     </view>
   </view>

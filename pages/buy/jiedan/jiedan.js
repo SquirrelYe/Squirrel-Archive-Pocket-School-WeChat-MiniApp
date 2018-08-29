@@ -49,9 +49,9 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: 'https://www.yexuan.site/Logistics_yx/jiedan', //接单接口
+      url: `${app.globalData.url}/jiedan`, //接单接口
       data: {
-        // 相关信息
+        judge:'0',
         openid: app.globalData.openid,
         number: this.data.number1
       },

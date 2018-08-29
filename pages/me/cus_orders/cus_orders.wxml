@@ -27,6 +27,7 @@
 <!-- items -->
 <scroll-view class='items_scroll'>
   <view class='items_item' wx:for="{{order}}" wx:key="item">
+  <block wx:if="{{item.conditions!='-1.'}}">
     <view class='apart'></view>
     <view class='p1'>
       <block wx:if="{{item.types=='1'}}">
@@ -39,6 +40,9 @@
         <image class='title_icon' src='../../../photo/me_waimai.png'></image>
       </block>
       <view class='title_txt'>{{item.cus_name}}</view>
+      <block wx:if="{{item.conditions=='-1'}}">
+        <view class='title_condition'>您已经取消订单</view>
+      </block>
       <block wx:if="{{item.conditions=='0'}}">
         <view class='title_condition'>大使未接单</view>
       </block>
@@ -52,7 +56,7 @@
         <view class='title_condition'>{{item.tak_name}}大使已送达</view>
       </block>
       <block wx:if="{{item.conditions=='4'}}">
-        <view class='title_condition'>订单已评价</view>
+        <view class='title_condition'>订单已评价,订单完成</view>
       </block>
     </view>
     <view class='p2'>
@@ -65,6 +69,9 @@
     </view>
     <view class='p3'>
           <view class='sum1'>
+          <block wx:if="{{item.conditions=='-1'}}">
+            <view class='time'>该订单已取消</view>
+          </block>
           <block wx:if="{{item.conditions=='0'}}">
             <view class='time'>创建时间：{{item.create_time}}</view>
           </block>
@@ -85,21 +92,40 @@
     </view>
     <view class='p4'>
       <block wx:if="{{item.conditions=='0'}}">
-        <view class='bottom'>取消订单</view>
-        <view class='bottom'>删除订单</view>
+        <view class='bottom' bindtap='deleteOrder'>取消订单</view>
+        <view class='bottom' bindtap='updateOrder'>修改*</view>
       </block>
       <block wx:if="{{item.conditions=='1'}}">
-        <view class='bottom'>取消订单</view>
-        <view class='bottom'>联系大使</view>
+        <view class='bottom' bindtap='deleteOrder'>取消订单</view>
+        <view class='bottom' bindtap='contactTaker'>联系大使</view>
       </block>
       <block wx:if="{{item.conditions=='2'}}">
-        <view class='bottom'>联系大使</view>
-        <view class='bottom'>催单</view>
+        <view class='bottom' bindtap='contactTaker'>联系大使</view>
+        <view class='bottom' bindtap='reMinder'>催单</view>
       </block>
       <block wx:if="{{item.conditions=='3'}}">
-        <view class='bottom'>联系大使</view>
-        <view class='bottom'>评价大使</view>
+        <view class='bottom' bindtap='contactTaker'>联系大使</view>
+        <view class='bottom' bindtap='commitCallback' data-index="{{index}}">评价大使</view>
+      </block>
+      <block wx:if="{{item.conditions=='4'}}">
+        <view class='bottom' bindtap='contactTaker'>联系大使</view>
       </block>
     </view>
+  </block>
   </view>
 </scroll-view>
+
+<block wx:if="{{dis_callback!='-1'}}">
+  <view class='filter1'>
+    <view class='title'>评价账单</view>
+    <view class='parts1'>
+      <view class='parts_2'>
+        <input class='input' placeholder='输入评价信息' confirm-type='done' bindinput='bindKeyInput'></input>
+      </view>
+    </view>
+    <view class='filter_bottom'>
+      <view class='filter_bottom_part1' bindtap='cancle'>取消</view>
+      <view class='filter_bottom_part2' bindtap='submit'>确定</view>
+    </view>
+  </view>
+</block>

@@ -7,7 +7,9 @@ App({
     unionid:null,
     session_key:null,
 
-    check_first:0 //取值0，1  0表示未授权userinfo信息，1表示已经授权userinfo信息
+    check_first:0, //取值0，1  0表示未授权userinfo信息，1表示已经授权userinfo信息
+    url:'https://www.yexuan.site',
+    url1:'http://localhost:11111'
   },
 
   onLaunch: function () {
@@ -22,8 +24,9 @@ App({
             //发起网络请求
             wx.request({
               //获取openid接口  
-              url: 'https://www.yexuan.site/Logistics_yx/openid_unionid',
+              url: `${that.globalData.url}/openid_unionid`,
               data: {
+                judge:'0',
                 appid: 'wx755d37a92190903e',
                 secret: 'fe91a08b40b57a9b8bdfdc6485d90b49',
                 js_code: res.code,
@@ -35,9 +38,9 @@ App({
               method: 'GET',
               success: function (res) {
                 console.log(res.data)
-                var OPEN_ID = res.data[0].openid;//获取到的openid  
-                var SESSION_KEY = res.data[0].session_key;//获取到session_key  
-                var UNION_ID = res.data[0].unionid;
+                var OPEN_ID = res.data.openid;//获取到的openid  
+                var SESSION_KEY = res.data.session_key;//获取到session_key  
+                var UNION_ID = ''
 
                 that.globalData.openid = OPEN_ID;
                 that.globalData.unionid = UNION_ID;
@@ -45,8 +48,6 @@ App({
 
                 console.log("OPEN_ID\t------>\t"+OPEN_ID);
                 console.log("SESSION_KEY\t------>\t"+SESSION_KEY);
-                //console.log(OPEN_ID.length)
-                //console.log(SESSION_KEY.length)
                 
               },
               fail:function(res){
@@ -60,7 +61,6 @@ App({
         }
       }),
 
-      //设置为4s之后提交所有user信息，防止出现回调延时，数据为空
         setTimeout(function () {
           //上传用户openid到服务器
          
@@ -79,20 +79,23 @@ App({
   
   getuserinfo:function(res){
     //获取用户信息   
-    this.globalData.userInfo = res 
-
+    var that = this;
+    that.globalData.userInfo = res 
+    console.log(that.globalData.userInfo.nickName)
+    var s = res.nickName;
     //上传用户openid到服务器
     wx.request({
-      url: 'https://www.yexuan.site/Logistics_yx/users',
+      url: `${that.globalData.url}/users`,
       data: {
         judge: '2',
-        openid: this.globalData.openid,//app.globalData.openid,
-        name: this.globalData.userInfo.nickName,
-        icon_url: this.globalData.userInfo.avatarUrl,
+        openid: that.globalData.openid,//app.globalData.openid,
+        name: that.globalData.userInfo.nickName,
+        school: '0101',
+        icon_url: that.globalData.userInfo.avatarUrl,
         age: '20',
         love: '0',
         birthday: '1998-06-28',
-        city: this.globalData.userInfo.province,
+        city: that.globalData.userInfo.province,
         sign: '原来我一直为你停留，甚至忘记了时间。'
       },
       header: {
@@ -101,13 +104,17 @@ App({
       method: 'GET',
       success: function (res) {
         console.log(res)
+      },
+      fail: function (res) {
+        console.log(res.data);
       }
     })
   },
 
   users: function (cb) {
+    var that=this;
     wx.request({
-      url: 'https://www.yexuan.site/Logistics_yx/yx',
+      url: `${that.globalData.url}/yx?judge=2`,
       success: function (res) {
         cb(res.data);
       }

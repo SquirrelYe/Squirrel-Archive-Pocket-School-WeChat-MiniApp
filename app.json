@@ -2,11 +2,11 @@
   "pages": [
     "pages/welcome/welcome",
     "pages/me/orders/orders",
+    "pages/me/callback/callback",
     "pages/me/cus_orders/cus_orders",
+    "pages/me/cus_checks/cus_checks",
     "pages/index/index",
     "pages/me/me",
-    "pages/me/callback/callback",
-    "pages/me/cus_checks/cus_checks",
     "pages/study/study",
     "pages/message/message",
     "pages/find/find",

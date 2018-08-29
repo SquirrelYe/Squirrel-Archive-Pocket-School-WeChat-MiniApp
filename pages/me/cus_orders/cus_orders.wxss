@@ -1,3 +1,4 @@
+@import "../../../ripples.wxss";
 /* pages/me/orders/orders.wxss */
 .selector{
   width: 100%;
@@ -146,4 +147,72 @@
   float: right;
   margin-right: 20rpx;
   margin-top: 10rpx;
+}
+
+.filter1{
+  width: 100%;
+  height: 300rpx;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  z-index: 2;
+  animation: swing 1s
+}
+.title{
+  width: 96%;
+  height: 80rpx;
+  background-color: white;
+  font-size: 29rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 15rpx;
+  margin-top: 10rpx;
+}
+.parts1{
+  width: 96%;
+  height: 100rpx;
+  background-color: white;
+  margin-left: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.parts_2{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  background-color: #f8f8f8
+}
+.input{
+  width: 100%;
+}
+.filter_bottom_part1{
+  width: 50%;
+  height: 90rpx;
+  background-color: white;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 29rpx;
+}
+.filter_bottom_part2{
+  width: 50%;
+  height: 90rpx;
+  background-color: #00cc00;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 29rpx;
+}
+.filter_bottom{
+  width: 100%;
+  height: 90rpx;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
 }

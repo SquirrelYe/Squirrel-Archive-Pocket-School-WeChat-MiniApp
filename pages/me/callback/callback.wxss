@@ -161,7 +161,9 @@
   width: 96%;
   margin-left: 15rpx;
   height: auto;
-  animation: swing 1s
+  animation: swing 1s;
+  position: fixed;
+  bottom: 0;
 }
 .callbacks_input_head{
   height: 60rpx;
@@ -193,4 +195,5 @@
 }
 .input{
   border: 1px solid #f2f2f2;
+  height: 100rpx;
 }

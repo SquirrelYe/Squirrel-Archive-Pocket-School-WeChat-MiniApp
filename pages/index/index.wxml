@@ -14,7 +14,7 @@
   <!-- <scroll-view class='show'> -->
   <view>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}">
+      <block wx:for="{{imgUrls}}" wx:key="imgUrls">
         <swiper-item>
           <image src="{{item}}" class="slide-image" mode="scaleToFill"/>
           <!--图片格式1080*160  -->
@@ -58,7 +58,7 @@
   <scroll-view scroll-y class='sc1' bindscrolltolower="fresh">
     <!--分隔  -->
     
-    <view class="item" wx:for="{{users}}" >
+    <view class="item" wx:for="{{users}}" wx:key="users">
       <!--分隔  -->
       <view class='part' bindtap='btnClick' data-index="{{index}}">
       <view class='border1'></view>

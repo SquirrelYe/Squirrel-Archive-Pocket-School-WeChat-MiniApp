@@ -45,6 +45,24 @@ Page({
       dis_callback:'0'
     });
   },
+  cancel:function(){
+    if (this.data.dis_callback == '0') {
+      this.setData({
+        dis_callback: '1'
+      });
+    } else {
+      this.setData({
+        dis_callback: '0'
+      });
+    }
+  },
+  f1:function(){
+    console.log("get")
+  },
+  f2:function(){
+    console.log("lose")
+  },
+
   onLoad: function (options) {
    //接收到me界面传来openid信息
     var openid=options.openid;
