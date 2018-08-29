@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.93",
 	"appid": "wx755d37a92190903e",
-	"projectname": "%E5%BF%AB%E9%80%92%E9%80%81%E5%8F%961",
+	"projectname": "git_PocketSchool",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

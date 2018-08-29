@@ -26,7 +26,7 @@
 
 <!-- items -->
 <scroll-view class='items_scroll'>
-  <view class='items_item' wx:for="{{otrder_test}}" wx:key="item">
+  <view class='items_item' wx:for="{{order}}" wx:key="item">
     <view class='apart'></view>
     <view class='p1'>
       <block wx:if="{{item.types=='1'}}">
@@ -38,20 +38,20 @@
        <block wx:if="{{item.types=='3'}}">
         <image class='title_icon' src='../../../photo/me_waimai.png'></image>
       </block>
-      <view class='title_txt'>{{item.name}}</view>
-      <block wx:if="{{item.condition=='0'}}">
+      <view class='title_txt'>{{item.cus_name}}</view>
+      <block wx:if="{{item.conditions=='0'}}">
         <view class='title_condition'>大使未接单</view>
       </block>
-      <block wx:if="{{item.condition=='1'}}">
-        <view class='title_condition'>大使已接单</view>
+      <block wx:if="{{item.conditions=='1'}}">
+        <view class='title_condition'>{{item.tak_name}}大使已接单</view>
       </block>
-      <block wx:if="{{item.condition=='2'}}">
-        <view class='title_condition'>大使已取货</view>
+      <block wx:if="{{item.conditions=='2'}}">
+        <view class='title_condition'>{{item.tak_name}}大使已取货</view>
       </block>
-      <block wx:if="{{item.condition=='3'}}">
-        <view class='title_condition'>大使已送达</view>
+      <block wx:if="{{item.conditions=='3'}}">
+        <view class='title_condition'>{{item.tak_name}}大使已送达</view>
       </block>
-      <block wx:if="{{item.condition=='4'}}">
+      <block wx:if="{{item.conditions=='4'}}">
         <view class='title_condition'>订单已评价</view>
       </block>
     </view>
@@ -64,29 +64,42 @@
       </view>
     </view>
     <view class='p3'>
-      <view class='sum1'>
-        <view class='time'>创建时间：{{item.time}}</view>
+          <view class='sum1'>
+          <block wx:if="{{item.conditions=='0'}}">
+            <view class='time'>创建时间：{{item.create_time}}</view>
+          </block>
+          <block wx:if="{{item.conditions=='1'}}">
+            <view class='time'>接单时间：{{item.get_time}}</view>
+          </block>
+          <block wx:if="{{item.conditions=='2'}}">
+            <view class='time'>取货时间：{{item.accept_time}}</view>
+          </block>
+          <block wx:if="{{item.conditions=='3'}}">
+            <view class='time'>送达时间：{{item.post_time}}</view>
+          </block>
+          <block wx:if="{{item.conditions=='4'}}">
+            <view class='time'>评价时间：{{item.callback_time}}</view>
+          </block>
         <view class='sum'>共{{item.sum}}件商品，合计：￥{{item.money}}</view>
       </view>
     </view>
     <view class='p4'>
-      <block wx:if="{{item.condition=='0'}}">
+      <block wx:if="{{item.conditions=='0'}}">
         <view class='bottom'>取消订单</view>
         <view class='bottom'>删除订单</view>
       </block>
-      <block wx:if="{{item.condition=='1'}}">
+      <block wx:if="{{item.conditions=='1'}}">
         <view class='bottom'>取消订单</view>
         <view class='bottom'>联系大使</view>
       </block>
-      <block wx:if="{{item.condition=='2'}}">
+      <block wx:if="{{item.conditions=='2'}}">
         <view class='bottom'>联系大使</view>
         <view class='bottom'>催单</view>
       </block>
-      <block wx:if="{{item.condition=='3'}}">
+      <block wx:if="{{item.conditions=='3'}}">
         <view class='bottom'>联系大使</view>
         <view class='bottom'>评价大使</view>
       </block>
     </view>
   </view>
-
 </scroll-view>
