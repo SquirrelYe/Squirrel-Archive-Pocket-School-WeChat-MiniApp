@@ -25,6 +25,7 @@ Page({
     color_item2: '#ffffff',
     color_item3: '#ffffff',
     color_item4: '#ffffff',
+    judge_type:'1',
     attention:'秋千后有景，秋千后有人。景是平凡景，人是心上人。',
     add_text: '＋关注',
     xiang_text:'详',
@@ -38,74 +39,27 @@ Page({
     interval: 3000,
     duration: 1000,
     sum:2,
-    users:null,
-    user:{
-      // 相关用户信息
-      // 1.用户头像
-      user_icons:[
-        "../../photo/ling.png",
-        "../../photo/discuss.png",
-      ],
-      // 2.用户昵称
-      nick:[
-          "风继续吹",
-          "皮皮虾，我们走"
-      ],
-      // 3.性别
-      sex:[
-          0,1,2
-          // 介绍，0表示性别未知，1为男性，2为女性
-      ],
-      // 4.类别type
-      types:[
-          1,2,3
-          //1为快递，2为普通，3为外卖
-      ],
-      // 5.内容details
-      details:[
-        "在众创空间买一杯鸳鸯奶茶送到启能斋520宿舍",
-        "启能斋外卖"
-      ],
-      // 6.conditions状态
-      conditions:[
-        1,2,3,4
-        //1为未接单，2为已接单，3为派送中，4为已完成
-      ],
-      // 7.money价格 
-      money: [
-        2.8,6.6
-      ],
-      // 8. time时间date
-      time: [
-        1,2,3,4
-      ],
-      // 9.from起点,to终点
-      location_from: [
-        "城大众创",
-        "启能斋"
-      ],
-      location_to: [
-        "电信楼",
-        "计算机学院"
-        ]
-    }
+    users:null
   },
+
   onPullDownRefresh: function () {
-    setTimeout(function () {
-      wx.stopPullDownRefresh()
-    }, 1000),
-    wx.showNavigationBarLoading(),
+    wx.showNavigationBarLoading()
     //添加刷新之后的信息。
-    setTimeout(function () {
-      wx.hideNavigationBarLoading()
-    }, 1000)  
-    // console.log("下拉刷新")
     var thispage = this;
+    this.setData({ color1: '#00cc00', color2: '#4d4d4d', color3: '#4d4d4d', color4: '#4d4d4d', judge_type: '0' });
+    this.setData({ color_item1: '#00cc00', color_item2: '#ffffff', color_item3: '#ffffff', color_item4: '#ffffff' });
+    this.setData({
+      users: ''
+    })
+    var that = this;
     app.users(function (data) {
       thispage.setData({ users: data });
       console.log(thispage.data.users);
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
     })
   },
+
   onReachBottom: function () {
     // Do something when page reach bottom.
     console.log('circle 下一页');
@@ -131,29 +85,71 @@ Page({
     })
   },
   choose1:function(){
-    this.setData({ color1: '#00cc00', color2: '#4d4d4d', color3: '#4d4d4d', color4: '#4d4d4d', color_item1: '#00cc00' });
-    this.setData({ color_item1: '#00cc00', color_item2: '#ffffff', color_item3: '#ffffff', color_item4: '#ffffff'  })
+    this.setData({ color1: '#00cc00', color2: '#4d4d4d', color3: '#4d4d4d', color4: '#4d4d4d', judge_type: '0'  });
+    this.setData({ color_item1: '#00cc00', color_item2: '#ffffff', color_item3: '#ffffff', color_item4: '#ffffff' }); 
+    this.setData({
+      users: ''
+    })
+    var that=this;
+    app.users(function (data) {
+      that.setData({ users: data });
+      console.log(that.data.users);
+    })
   },
 
   choose2: function () {
-    this.setData({ color1: '#4d4d4d', color2: '#00cc00', color3: '#4d4d4d', color4: '#4d4d4d' });
+    this.setData({ color1: '#4d4d4d', color2: '#00cc00', color3: '#4d4d4d', color4: '#4d4d4d', judge_type: '1'  });
     this.setData({ color_item1: '#ffffff', color_item2: '#00cc00', color_item3: '#ffffff', color_item4: '#ffffff' })
+    this.choice(this.data.judge_type)
   },
 
   choose3: function () {
-    this.setData({ color1: '#4d4d4d', color2: '#4d4d4d', color3: '#00cc00', color4: '#4d4d4d' });
+    this.setData({ color1: '#4d4d4d', color2: '#4d4d4d', color3: '#00cc00', color4: '#4d4d4d', judge_type: '2'  });
     this.setData({ color_item1: '#ffffff', color_item2: '#ffffff', color_item3: '#00cc00', color_item4: '#ffffff' })
+    this.choice(this.data.judge_type)
   },
 
   choose4: function () {
-    this.setData({ color1: '#4d4d4d', color2: '#4d4d4d', color3: '#4d4d4d', color4: '#00cc00' });
-    this.setData({ color_item1: '#ffffff', color_item2: '#ffffff', color_item3: '#ffffff', color_item4: '#00cc00' })      
+    this.setData({ color1: '#4d4d4d', color2: '#4d4d4d', color3: '#4d4d4d', color4: '#00cc00', judge_type: '3' });
+    this.setData({ color_item1: '#ffffff', color_item2: '#ffffff', color_item3: '#ffffff', color_item4: '#00cc00' })
+    this.choice(this.data.judge_type)     
   },
 
   setdata: function (res) {
     this.setData({ users: res })
   },
 
+  choice: function (judge_type) {
+    var that = this;
+    that.setData({
+      users: ''
+    })
+    wx.showNavigationBarLoading()
+    //发起网络请求
+    wx.request({
+      //获取openid接口  
+      url: `${app.globalData.url}/yx`,
+      data: {
+        'judge': '0',
+        'type': judge_type
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          users: res.data
+        })
+        wx.hideNavigationBarLoading()
+      },
+      fail: function (res) {
+        console.log(res.data);
+        wx.hideNavigationBarLoading()
+      }
+    })
+  },
   onLoad: function (options) {
     var thispage = this;
 
@@ -167,13 +163,6 @@ Page({
       thispage.setData({ users: data });
       console.log(thispage.data.users);
     })
-
-  
-
-    //设置为4s之后提交所有user信息，防止出现回调延时，数据为空
-    setTimeout(function () {
-      
-    }, 4000) 
     
    
   },

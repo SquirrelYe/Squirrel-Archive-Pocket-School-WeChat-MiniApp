@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/me/authenticate/authenticate",
     "pages/welcome/welcome",
     "pages/me/orders/orders",
     "pages/me/callback/callback",
@@ -14,8 +15,7 @@
     "pages/buy/xiadan/xiadan",
     "pages/buy/jiedan/jiedan",
     "pages/talk/talk",
-    "pages/buy_kind/buy_kind",
-    "pages/me/authenticate/authenticate"
+    "pages/buy_kind/buy_kind"
   ],
   "window": {
     "backgroundTextStyle": "light",

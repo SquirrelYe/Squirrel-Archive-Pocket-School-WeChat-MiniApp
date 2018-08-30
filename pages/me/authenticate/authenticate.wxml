@@ -34,8 +34,13 @@
       </view> 
 
       <view class='school_card' bindtap='choose_img'>
-        <image src='../../../photo/school_card.png' class='school_img'></image>
-        <text class='school_text'>请上传你的学生证照片</text>
+        <block wx:if="{{judge_card==0}}">
+          <image src='{{school_card}}' class='school_img'></image>
+        </block>
+        <block wx:if="{{judge_card==1}}">
+          <image src='{{school_card1}}' class='school_img'></image>
+        </block>
+        <text class='school_text'>{{school_txt}}</text>
       </view>
 
       <view class='school_card1'>

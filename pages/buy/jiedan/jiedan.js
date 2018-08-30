@@ -48,31 +48,45 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    wx.request({
-      url: `${app.globalData.url}/jiedan`, //接单接口
-      data: {
-        judge:'0',
-        openid: app.globalData.openid,
-        number: this.data.number1
-      },
-      method: "GET",
-      header: {
-        'content-type': 'application/json;charset=uft-8'  // 默认值
-      },
-      success: function (res) {
-        console.log(res.data);      
-        wx.hideLoading(),
-          wx.showLoading({
-            title: '下单成功',
-            duration: 2000
-          }) 
-        that.setData({ judge: 1});          
-      },
-      fail: function (res) {
-        console.log("请求失败");
-        wx.hideLoading()
-      }
-    })
+    if (that.data.user != null && app.globalData.openid!=null){
+      wx.request({
+        url: `${app.globalData.url}/jiedan`, //接单接口
+        data: {
+          judge: '0',
+          number: this.data.number1,
+          types: that.data.user.type,
+          openid_cus: that.data.user.openid,
+          openid_tak: app.globalData.openid,
+          conditions: '1',
+          cus_phone: that.data.user.key_phone,
+          tak_phone: '222'
+        },
+        method: "GET",
+        header: {
+          'content-type': 'application/json;charset=uft-8'  // 默认值
+        },
+        success: function (res) {
+          console.log(res.data);
+          wx.hideLoading(),
+            wx.showLoading({
+              title: '下单成功',
+              duration: 2000
+            })
+          that.setData({ judge: 1 });
+        },
+        fail: function (res) {
+          console.log("请求失败");
+          wx.hideLoading()
+        }
+      })
+    }else{
+      wx.hideLoading(),
+        wx.showLoading({
+          title: '下单失败',
+          duration: 2000
+        })
+    }
+    
   },
   get_jiedan:function(){
     wx.showToast({

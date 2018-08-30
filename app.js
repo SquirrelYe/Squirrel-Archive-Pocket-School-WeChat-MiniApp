@@ -8,8 +8,8 @@ App({
     session_key:null,
 
     check_first:0, //取值0，1  0表示未授权userinfo信息，1表示已经授权userinfo信息
-    url:'https://www.yexuan.site',
-    url1:'http://localhost:11111'
+    url1:'https://www.yexuan.site',
+    url:'http://localhost:11111'
   },
 
   onLaunch: function () {
