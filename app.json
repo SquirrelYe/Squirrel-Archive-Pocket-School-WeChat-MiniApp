@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/me/authenticate/authenticate",
     "pages/welcome/welcome",
+    "pages/me/authenticate/authenticate",
     "pages/me/orders/orders",
     "pages/me/callback/callback",
     "pages/me/cus_orders/cus_orders",

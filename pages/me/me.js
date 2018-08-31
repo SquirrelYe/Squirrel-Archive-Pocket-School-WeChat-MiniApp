@@ -51,36 +51,51 @@ Page({
     })
   },
   onPickHeaderClick: function () {
-    this.setData({
-      //openPicker: !this.data.openPicker,
-      needAnimation: true,
-      open:!this.data.open
-    })
-   
-    var animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'ease',
-    })
-
-    var animation1 = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'ease',
-    })
-
-    this.animation = animation,
-      this.setData({
-        animationData: animation.export()
+    if (app.globalData.authenticate.length==0){
+      wx.showModal({
+        title: '认证！认证！认证！',
+        content: '同孩，你还没有填写认证信息，点确定成为校园大使。',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: './authenticate/authenticate',
+            })
+          } else if (res.cancel) {
+            
+          }
+        }
       })
+    } else {
+      this.setData({
+        //openPicker: !this.data.openPicker,
+        needAnimation: true,
+        open: !this.data.open
+      })
+
+      var animation = wx.createAnimation({
+        duration: 1000,
+        timingFunction: 'ease',
+      })
+
+      var animation1 = wx.createAnimation({
+        duration: 1000,
+        timingFunction: 'ease',
+      })
+
+      this.animation = animation,
+        this.setData({
+          animationData: animation.export()
+        })
       this.animation1 = animation1,
-      this.setData({
-        animationData1: animation1.export()
-      })
+        this.setData({
+          animationData1: animation1.export()
+        })
 
-      if(this.data.open==true){
+      if (this.data.open == true) {
         this.setData({
           zhankai: '../../photo/jiantou_1.png'
         })
-       
+
         this.animation.translate(0, 120).step({ duration: 500 })
         this.animation1.translate(0, 120).step({ duration: 500 })
         this.setData({
@@ -88,7 +103,7 @@ Page({
           animationData1: this.animation1.export()
 
         })
-      }else{
+      } else {
         this.setData({
           zhankai: '../../photo/jiantou.png'
         })
@@ -97,7 +112,9 @@ Page({
         this.setData({
           animationData: this.animation.export(),
           animationData1: this.animation1.export()
-      })        
+        })
+      }
+
     }
   },
   school_details:function(){
