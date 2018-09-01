@@ -1,0 +1,161 @@
+
+@import "../../../ripples.wxss";
+.container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffb380;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body{
+  position: absolute;
+  height:70%;
+  width: 80%;
+}
+.title{
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+}
+.txt{
+  color: white;
+  font-size: 40rpx;
+}
+.icon{
+  width: 100%;
+  height: 30%;
+}
+.icon_1{
+  width: 40%;
+  height: 100%;
+  margin-left: 6%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.xuan{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 380rpx;
+  margin-top: 30rpx;
+}
+.xuan1{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 110rpx;
+  margin-top: 30rpx;
+}
+.tx{
+  width: 140rpx;
+  height: 140rpx;
+}
+.icon_1_txt{
+  color: white;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.i3{
+  width:100%;
+  height: 77rpx;
+  background-color: #ffbb99;
+  font-size: 36rpx;
+  margin-top: 80rpx;
+  border-radius: 5rpx;
+}
+.i3_1{
+  width:100%;
+  height: 77rpx;
+  background-color: #ffbb99;
+  font-size:32rpx;
+  margin-top: 25rpx;
+  border-radius: 5rpx;
+}
+.mails{
+  width:100%;
+  height: 77rpx;
+  background-color: #ffbb99;
+  font-size:35rpx;
+  margin-top: 25rpx;
+  border-radius: 5rpx;
+  display: flex;
+  align-items: center
+}
+.i1_2 {
+  margin-top:25rpx;
+  background-color: #ffbb99;
+  width: 100%;
+  height: 77rpx;     
+  border-radius: 5rpx;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}  
+.i2_2{  
+  margin-left: 20rpx;
+  width: 200rpx;
+  height: 40rpx;
+  float: left;
+  font-size: 32rpx;
+}
+.i3_2{
+  width:100%;
+  font-size: 32rpx;
+  color: white;
+  font-weight: 300;
+}
+
+.mail_input{
+  width:80%;
+  height: 77rpx;
+  font-size:32rpx;
+  float: left
+}
+.mail_yz{
+  width:100%;
+  height: 77rpx;
+  background-color: #ffbb99;
+  font-size:32rpx;
+  margin-top: 25rpx;
+  border-radius: 5rpx;
+  animation: swing 1s;
+}
+.yz{
+  width: 80rpx;
+  height: 45rpx;
+  color: #00cc00;
+  font-size: 30rpx;
+  background-color: #f2f2f2;
+  border-radius: 10rpx;
+  position: absolute;
+  right: 40rpx;
+  display: flex;
+  justify-content: center;
+}
+.xm{
+  font-size: 32rpx;
+  font-weight: 300;
+  color: white;
+  margin-left: 20rpx;
+}
+.enter{
+  width: 100%;
+  height: 80rpx;
+  background-color: #ffcc33;
+  display: flex;
+  color: white;
+  border-radius: 5rpx;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  animation: swing 1s;
+}

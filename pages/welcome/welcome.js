@@ -72,7 +72,7 @@ Page({
         userInfo: e.detail.userInfo
       })
     }else{
-      console.log(e.detail.userInfo);
+      console.log(e);
     }
 
     wx.getSetting({
@@ -88,8 +88,8 @@ Page({
           //update 更新app.js里面的数据
           app.getuserinfo(e.detail.userInfo);
 
-          wx.switchTab({
-            url: '../index/index',
+          wx.navigateTo({
+            url: './register/register',
           })
         }
       }
@@ -116,8 +116,8 @@ Page({
             }
           })
           
-          wx.switchTab({
-            url: '../index/index',
+          wx.navigateTo({
+            url: './register/register',
           })
         }
       }, 2000) 

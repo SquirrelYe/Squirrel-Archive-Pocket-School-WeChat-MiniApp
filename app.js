@@ -1,4 +1,3 @@
-//app.js
 App({
   
   globalData: {
@@ -10,34 +9,17 @@ App({
     check_first:0, //取值0，1  0表示未授权userinfo信息，1表示已经授权userinfo信息
     url1:'https://www.yexuan.site',
     url:'http://localhost:11111',
-    user_add: {
-      "openid": "oIWqt4iGk5GNc_H_JKf3REtjDmMs",
-      "name": "NullReferenceException",
-      "school": "0101",
-      "grade": 3,
-      "e_mail": "ceo@yexuan.site",
-      "create_time": '2018 - 08 - 30 00: 21: 20',
-      "icon_url": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJLvDauOxz0icWPgpFju1mFwqZ3Rf0X1gicanO0syyx3Zw0YyRPk2BPaIcjEzicBeFvV3ewpaWsI9jxw/132",
-      "age": "20",
-      "love": "0",
-      "birthday": "1998-06-28",
-      "city": "Tianjin",
-      "sign": "原来我一直为你停留，甚至忘记了时间。"
-    },
+    
     rz_type:'-1',
     authenticate:''
   },
 
   onLaunch: function () {
-      
-    var that = this;    
-    
-    //获取openid & unionid(暂无)
+    var that = this;     
     wx.login({
       success: function (res) {          
         if (res.code) {
           console.log("JS_CODE\t------>\t"+res.code);
-          //发起网络请求
           wx.request({
             //获取openid接口  
             url: `${that.globalData.url}/openid_unionid`,
@@ -114,34 +96,7 @@ App({
     //获取用户信息   
     var that = this;
     that.globalData.userInfo = res 
-    console.log(that.globalData.userInfo.nickName)
-    var s = res.nickName;
-    //上传用户openid到服务器
-    wx.request({
-      url: `${that.globalData.url}/users`,
-      data: {
-        judge: '2',
-        openid: that.globalData.openid,//app.globalData.openid,
-        name: that.globalData.userInfo.nickName,
-        school: '0101',
-        icon_url: that.globalData.userInfo.avatarUrl,
-        age: '20',
-        love: '0',
-        birthday: '1998-06-28',
-        city: that.globalData.userInfo.province,
-        sign: '原来我一直为你停留，甚至忘记了时间。'
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
-      success: function (res) {
-        console.log(res)
-      },
-      fail: function (res) {
-        console.log(res.data);
-      }
-    })
+    console.log('获得相关信息-->',that.globalData.userInfo.nickName)
   },
 
   users: function (cb) {

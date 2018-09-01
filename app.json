@@ -1,13 +1,14 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/me/me",
+    "pages/welcome/register/register",
     "pages/me/authenticate/authenticate",
     "pages/me/orders/orders",
     "pages/me/callback/callback",
     "pages/me/cus_orders/cus_orders",
     "pages/me/cus_checks/cus_checks",
     "pages/index/index",
-    "pages/me/me",
     "pages/study/study",
     "pages/message/message",
     "pages/find/find",
@@ -33,14 +34,12 @@
         "iconPath": "photo/kuaidi1.png",
         "selectedIconPath": "photo/kuaidi2.png"
       },
-      
       {
         "pagePath": "pages/buy_kind/buy_kind",
         "text": "发布",
         "iconPath": "photo/add_menu.png",
         "selectedIconPath": "photo/add_menu_1.png"
       },
-     
       {
         "pagePath": "pages/me/me",
         "text": "我的",

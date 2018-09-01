@@ -22,7 +22,7 @@ Page({
     img2:'',
     check_mail:'0',
     isArrive:'false',
-    array: ['点击选择学校（暂支支持天津地区）','南开大学', '天津大学', '中国民航大学', '天津城建大学', '天津职业技术师范大学',
+    array: ['点击选择学校（暂只支持天津地区）','南开大学', '天津大学', '中国民航大学', '天津城建大学', '天津职业技术师范大学',
       '天津工业大学', '天津科技大学', '天津理工大学', '天津医科大学', '天津中医药大学', '天津师范大学',
       '天津财经大学', '天津商业大学', '天津天狮学院', '天津农学院', '天津外国语大学', '天津体育学院',
       '天津音乐学院', '天津美术学院'],
@@ -59,7 +59,7 @@ Page({
     }
   },
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', `010${e.detail.value}`)
+    console.log('picker发送选择改变，携带值为', `${e.detail.value}`)
     this.setData({
       school_index: e.detail.value,
       school: `${e.detail.value}`

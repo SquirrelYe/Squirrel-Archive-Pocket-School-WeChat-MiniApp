@@ -1,0 +1,38 @@
+<view class='container'>
+  <view class='body'>
+    <view class='title'><text class='txt'>请选择</text></view>
+    <view class='icon'>
+    <block wx:if="{{gander=='1'}}">
+      <image class='xuan' src='../../../photo/xuan.png'></image>
+    </block>
+    <block wx:if="{{gander=='2'}}">
+      <image class='xuan1' src='../../../photo/xuan.png'></image>
+    </block>
+      <view class='icon_1' bindtap='c_boy'>
+        <image class='tx' src='../../../photo/boy_icon.png'></image>
+        <text class='icon_1_txt'>小哥哥</text>
+      </view>
+      <view class='icon_1' bindtap='c_gril'>
+        <image class='tx' src='../../../photo/gril_icon.png'></image>
+        <text class='icon_1_txt'>小姐姐</text></view>
+    </view>
+    <view class='key'>
+      <input class='i3' placeholder="昵称" placeholder-class='xm' confirm-type='next' bindblur='d1'></input>
+      <picker bindchange="bindPickerChange" value="{{school_index}}" range="{{array}}" class='i1_2'>
+        <lable class="i3_2">{{array[school_index]}}</lable>
+      </picker>
+      <view class='mails'>
+        <input class='mails_input' placeholder="邮箱" placeholder-class='xm' confirm-type='next' bindinput='d3'></input>
+        <block wx:if="{{check_mail=='1'}}">
+            <view class='yz' bindtap='yz'><label>验证</label></view>
+        </block>
+      </view>
+    </view>
+    <block wx:if="{{check_mail=='0'}}">
+      <view class='enter' bindtap='register'><text>注册</text></view>
+    </block>
+    <block wx:if="{{check_mail=='1'}}">
+    <input class='mail_yz' placeholder="邮箱验证码" placeholder-class='xm' confirm-type='next' bindinput='check_mail'></input>
+    </block>
+  </view>
+</view>

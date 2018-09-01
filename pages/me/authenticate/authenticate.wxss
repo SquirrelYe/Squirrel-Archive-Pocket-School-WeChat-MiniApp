@@ -1,4 +1,4 @@
-/* pages/authenticate/authenticate.wxss */
+
 @import "../../../ripples.wxss";
 .top{
   width: 100%;
