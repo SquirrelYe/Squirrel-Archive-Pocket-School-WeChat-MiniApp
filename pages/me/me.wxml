@@ -85,7 +85,7 @@
       <view class='border_info4'></view>
 
       <view class="y1" bindtap='nv_cus_orders'>
-        <label class='y2'>我的账单</label>
+        <label class='y2'>我的订单</label>
         <label class='y4'>早起的鸟儿有虫吃</label>
         <image src='../../photo/jiantou.png' class='y3'></image>
       </view>

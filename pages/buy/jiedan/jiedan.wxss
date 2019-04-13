@@ -88,4 +88,5 @@
   color: black;
   background-color: white;
   clear: both;  
+  width: 100%;
 }

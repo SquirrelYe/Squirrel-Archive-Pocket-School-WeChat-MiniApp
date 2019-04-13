@@ -22,10 +22,10 @@ Page({
     img2:'',
     check_mail:'0',
     isArrive:'false',
-    array: ['点击选择学校（暂只支持天津地区）','南开大学', '天津大学', '中国民航大学', '天津城建大学', '天津职业技术师范大学',
-      '天津工业大学', '天津科技大学', '天津理工大学', '天津医科大学', '天津中医药大学', '天津师范大学',
-      '天津财经大学', '天津商业大学', '天津天狮学院', '天津农学院', '天津外国语大学', '天津体育学院',
-      '天津音乐学院', '天津美术学院'],
+    array: ['点击选择学校（暂只支持天津地区）','南开大学', '天津大学', '中国民航大学', 
+            '天津城建大学', '天津职业技术师范大学','天津工业大学', '天津科技大学', '天津理工大学', 
+            '天津医科大学', '天津中医药大学', '天津师范大学','天津财经大学', '天津商业大学', 
+            '天津天狮学院', '天津农学院', '天津外国语大学', '天津体育学院','天津音乐学院', '天津美术学院'],
     school_index: 0
   },
 
@@ -101,6 +101,9 @@ Page({
       })
     }
     else{
+      wx.showLoading({
+        title: '认证信息发送中……',
+      })
       wx.request({
         url: `${app.globalData.url}/authenticate`,
         data: {
@@ -112,14 +115,11 @@ Page({
           xuehao: this.data.xuehao,
           phone: this.data.phone,
           e_mail: this.data.e_mail,
-          rz_icon: this.data.img2
-        },
-        method: "GET",
-        header: {
-          'content-type': 'application/json;charset=uft-8'  // 默认值
+          rz_icon: `${app.globalData.url}/${this.data.img2}`
         },
         success: function (res) {
           console.log(res.data);
+          wx.hideLoading();
           wx.showModal({
             title: '等待认证ing...',
             content: '认证信息正在发往后台小哥哥，小哥哥会将结果通过邮箱发送给你。',
@@ -142,10 +142,14 @@ Page({
   },
 
   choose_img: function () {
-    if (this.data.judge_card == 0) {
-      this.img();
+    if (app.globalData.rz_type == '-2') {
+      if (this.data.judge_card == 0) {
+        this.img();
+      } else {
+        this.img1();
+      }
     }else{
-      this.img1();
+
     }
   },
   img: function () {
@@ -275,7 +279,7 @@ Page({
   },
   renzheng1:function(){
       wx.showToast({
-        title: '认真点...',
+        title: '弄啥呢，认真点',
         icon:'loading'
       })
   },
@@ -293,7 +297,7 @@ Page({
     if (app.globalData.rz_type!='-2'){
       this.setData({ 
         authenticateInit: app.globalData.authenticate[0] ,
-        authenticateInitIcon: `${app.globalData.url}/${app.globalData.authenticate[0].rz_icon}`
+        authenticateInitIcon: `${app.globalData.authenticate[0].rz_icon}`
       });
     }
     console.log(this.data.authenticateInitIcon)

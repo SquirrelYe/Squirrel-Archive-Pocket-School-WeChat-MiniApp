@@ -118,42 +118,37 @@ Page({
     }
   },
   school_details:function(){
-    wx.showLoading({
-      title: '加载中',
-      duration: 1500
+    wx.showToast({
+      title: '小哥哥研发中',
+      icon:'none'
     })
   },
-  classmates:function(){
-    wx.showLoading({
-      title: '加载中',
-      duration: 1500
+  classmates: function () {
+    wx.showToast({
+      title: '小哥哥研发中',
+      icon: 'none'
     })
   },
-  bug:function(){
-    wx.showLoading({
-      title: '加载中',
-      duration: 1500
+  bug: function () {
+    wx.showToast({
+      title: '小哥哥研发中',
+      icon: 'none'
     })
   },
-  about:function(){
-    wx.showLoading({
-      title: '加载中',
-      duration: 1500
+  about: function () {
+    wx.showToast({
+      title: '小哥哥研发中',
+      icon: 'none'
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  
   onLoad: function (options) {
     this.setData({
       user: app.globalData.userInfo
     });
     console.log(this.data.user);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  
   onReady: function () {
     var that = this;
     wx.getSystemInfo({
@@ -166,9 +161,7 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
+
   onShow: function () {
 
   },
@@ -180,30 +173,22 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
+
   onUnload: function () {
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+
   onPullDownRefresh: function () {
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+
   onReachBottom: function () {
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
+
   onShareAppMessage: function () {
 
   }

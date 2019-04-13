@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "加入大家庭"
+  "navigationBarTitleText": "加入大家庭",
+
+  "navigationBarBackgroundColor": "#ffb380",
+  "navigationBarTextStyle": "white"
 }

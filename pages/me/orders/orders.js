@@ -1,5 +1,4 @@
 const app = getApp()
-// pages/me/orders/orders.js
 Page({
 
   data: {
@@ -16,17 +15,7 @@ Page({
     color_item4: '#ffffff',
     color_item5: '#ffffff',
     order:'',
-    judge_item:'-1',
-    otrder_test: [{
-      "types": "1",
-      "name": "天上的云……",
-      "condition": "1",
-      "icon": "../../../photo/wuhuang.jpg",
-      "details": "在众创空间买一杯鸳鸯奶茶送到启能斋520宿舍。",
-      "time":"2018.08.24 23:14",
-      "money": "6.00",
-      "sum": "1"
-    }]
+    judge_item:'-1'
   },
 
   choose1: function () {
@@ -61,18 +50,12 @@ Page({
       order: ''
     })
     wx.showNavigationBarLoading()
-    //发起网络请求
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/taker`,
       data: {
         judge: '0',
-        openid_tak: '2'
+        openid_tak: that.data.order_openid
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
         that.setData({
@@ -92,19 +75,13 @@ Page({
       order: ''
     })
     wx.showNavigationBarLoading()
-    //发起网络请求
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/taker`,
       data: {
         judge: '2',
-        openid_tak: '2',
+        openid_tak: that.data.order_openid,
         conditions: judge_item
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
         that.setData({
@@ -118,20 +95,16 @@ Page({
     })
   },
 
-  ordAccept:function(){
+  ordAccept:function(e){
     var that = this;
-    //发起网络请求
+    var index = parseInt(e.currentTarget.dataset.index);
+    var tem = that.data.order[index];
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/taker`,
       data: {
         'judge': '3',
-        'number': '1'
+        'number': tem.number
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
         that.enter();
@@ -142,20 +115,16 @@ Page({
     })
   },
 
-  ordArrive:function(){
-    var that = this;
-    //发起网络请求
+  ordArrive:function(e){
+    var that = this
+    var index = parseInt(e.currentTarget.dataset.index);
+    var tem = that.data.order[index];
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/taker`,
       data: {
         'judge': '4',
-        'number': '1'
+        'number': tem.number
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
         that.enter();
@@ -166,20 +135,16 @@ Page({
     })
   },
   
-  contactCustomer:function(){
+  contactCustomer:function(e){
     var that = this;
-    //发起网络请求
+    var index = parseInt(e.currentTarget.dataset.index);
+    var tem = that.data.order[index];
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/taker`,
       data: {
         'judge': '6',
-        'number': '1'
+        'number': tem.number
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
         wx.makePhoneCall({
@@ -194,19 +159,15 @@ Page({
 
   deleteOrderByNumber:function(){
     var that = this;
-    //发起网络请求
+    var index = parseInt(e.currentTarget.dataset.index);
+    var tem = that.data.order[index];
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/taker`,
       data: {
         'judge': '1',
-        'number': '1',
-        'openid_tak':'2'
+        'number': tem.number,
+        'openid_tak': that.data.order_openid
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
       },
@@ -217,7 +178,6 @@ Page({
   },
 
   onLoad: function (options) {
-    //接收到me界面传来openid信息
     var openid=options.openid;
     this.setData({
       order_openid: openid

@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "筑梦校园",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance":10
 }

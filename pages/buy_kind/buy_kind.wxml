@@ -1,4 +1,3 @@
-<!--pages/buy_kind.wxml-->
 <block wx:if="{{dis_part=='1'}}">
   <view class='top'>
     <view class='part1' bindtap='putong'>

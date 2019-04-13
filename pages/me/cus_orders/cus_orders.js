@@ -18,17 +18,7 @@ Page({
     judge_item:'-1',
     dis_callback:'-1',
     callback:'',
-    otrder:'',
-    order_test: [{
-      "types": "1",
-      "name": "天上的云……",
-      "conditions": "1",
-      "icon": "../../../photo/wuhuang.jpg",
-      "details": "在众创空间买一杯鸳鸯奶茶送到启能斋520宿舍。",
-      "time": "2018.08.24 23:14",
-      "money": "6.00",
-      "sum": "1"
-    }]
+    otrder:''
   },
 
   choose1: function () {
@@ -58,7 +48,6 @@ Page({
   },
 
   onLoad: function (options) {
-    //接收到me界面传来openid信息
     var openid=options.openid;
     this.setData({
       order_openid: openid
@@ -85,7 +74,6 @@ Page({
 
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading(),
-    //添加刷新之后的信息。
     setTimeout(function () {
       wx.hideNavigationBarLoading()
       wx.stopPullDownRefresh()
@@ -112,24 +100,19 @@ Page({
       console.log(judge_item, '-->', '待评价')
     }
   },
+
   enter:function(){
     var that = this;
     that.setData({
       order: ''
     })
     wx.showNavigationBarLoading()
-    //发起网络请求
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/customer`,
       data: {
         judge: '0',
-        openid_cus: '1'
+        openid_cus: that.data.order_openid
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
         that.setData({
@@ -142,25 +125,20 @@ Page({
       }
     })
   },
+
   fresh: function (judge_item){
     var that = this;
     that.setData({
       order: ''
     })
     wx.showNavigationBarLoading()
-    //发起网络请求
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/customer`,
       data: {
         judge: '1',
-        openid_cus: '1',
+        openid_cus: that.data.order_openid,
         conditions: judge_item
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
         that.setData({
@@ -174,20 +152,18 @@ Page({
       }
     })
   },
-  contactTaker:function(){
+
+  contactTaker: function (e) {
     var that = this;
-    //发起网络请求
-    wx.request({
-      //获取openid接口  
+    var index = parseInt(e.currentTarget.dataset.index);
+    var tem = that.data.order[index];
+    console.log(tem)
+    wx.request({ 
       url: `${app.globalData.url}/customer`,
       data: {
         'judge': '5',
-        'number': '1'
+        'number': tem.number
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data[0].tak_phone)
         wx.makePhoneCall({
@@ -199,21 +175,18 @@ Page({
       }
     })
   },
-  deleteOrder:function(){
+
+  deleteOrder: function (e) {
     var that = this;
-    //发起网络请求
+    var index = parseInt(e.currentTarget.dataset.index);
+    var tem = that.data.order[index];
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/customer`,
       data: {
         'judge': '2',
-        'number': '1',
-        'openid':'1'
+        'number': tem.number,
+        'openid': that.data.order_openid
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
       },
@@ -222,20 +195,17 @@ Page({
       }
     })
   },
-  reMinder:function(){
+
+  reMinder: function (e) {
     var that = this;
-    //发起网络请求
+    var index = parseInt(e.currentTarget.dataset.index);
+    var tem = that.data.order[index];
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/customer`,
       data: {
         'judge': '4',
-        'openid': '1'
+        'openid': that.data.order_openid
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
       },
@@ -244,6 +214,7 @@ Page({
       }
     })
   },
+
   commitCallback:function(e){
     var that = this;
     var index = parseInt(e.currentTarget.dataset.index);
@@ -261,40 +232,57 @@ Page({
       dis_callback: '-1'
     })
   },
+
   submit:function(){
     var that=this;
     var index=that.data.dis_callback;
     var order = that.data.order[index];
     console.log(order.number);
-    //发起网络请求
     wx.request({
-      //获取openid接口  
       url: `${app.globalData.url}/customer`,
       data: {
         'judge': '6',
         'number': `${order.number}`,
         'cus_callback': `${that.data.callback}`
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: 'GET',
       success: function (res) {
         console.log(res.data)
         that.setData({
           dis_callback: '-1'
         })
+        that.ordComplete(order)
       },
       fail: function (res) {
         console.log(res.data);
       }
     })
   },
+
+  ordComplete:function(e){
+    var that = this;
+    console.log('-->',e)
+    wx.request({
+      url: `${app.globalData.url}/customer`,
+      data: {
+        'judge': '7',
+        'number': e.number
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.fresh();
+      },
+      fail: function (res) {
+        console.log(res.data);
+      }
+    })
+  },
+
   bindKeyInput: function (e) {
     this.setData({
       callback: e.detail.value
     })
   },
+
   onReachBottom: function () {
 
   },

@@ -1,4 +1,3 @@
-<!--pages/me/orders/orders.wxml-->
 
 <!-- selector -->
 <view class='selector'>
@@ -19,7 +18,7 @@
       <view class='border-item' style='background-color:{{color_item4}}'></view>
   </view>
   <view class='selector_part' bindtap='choose5'>
-      <view class='selector_txt'  style='color:{{color5}}'>已评价</view>
+      <view class='selector_txt'  style='color:{{color5}}'>已完成</view>
       <view class='border-item' style='background-color:{{color_item5}}'></view>
   </view>
 </view>
@@ -53,7 +52,7 @@
         <view class='title_condition'>已送达</view>
       </block>
       <block wx:if="{{item.conditions=='4'}}">
-        <view class='title_condition'>订单已评价</view>
+        <view class='title_condition'>订单已完成</view>
       </block>
     </view>
     <view class='p2'>
@@ -86,19 +85,19 @@
     </view>
     <view class='p4'>
       <block wx:if="{{item.conditions=='1'}}">
-        <view class='bottom_s' bindtap='ordAccept'>确认取货</view>
-        <view class='bottom' bindtap='contactCustomer'>联系同学</view>
-        <view class='bottom' bindtap='deleteOrderByNumber'>取消订单</view>
+        <view class='bottom_s' bindtap='ordAccept' data-index="{{index}}">确认取货</view>
+        <view class='bottom' bindtap='contactCustomer' data-index="{{index}}">联系同学</view>
+        <view class='bottom' bindtap='deleteOrderByNumber' data-index="{{index}}">取消订单</view>
       </block>
       <block wx:if="{{item.conditions=='2'}}">
-        <view class='bottom_s' bindtap='ordArrive'>确认送达</view>
-        <view class='bottom' bindtap='contactCustomer'>联系同学</view>
+        <view class='bottom_s' bindtap='ordArrive' data-index="{{index}}">确认送达</view>
+        <view class='bottom' bindtap='contactCustomer' data-index="{{index}}">联系同学</view>
       </block>
       <block wx:if="{{item.conditions=='3'}}">
-        <view class='bottom' bindtap='contactCustomer'>联系同学</view>
+        <view class='bottom' bindtap='contactCustomer' data-index="{{index}}">联系同学</view>
       </block>
       <block wx:if="{{item.conditions=='4'}}">
-        <view class='bottom' bindtap='contactCustomer'>联系同学</view>
+        <view class='bottom' bindtap='contactCustomer' data-index="{{index}}">联系同学</view>
       </block>
     </view>
   </view>

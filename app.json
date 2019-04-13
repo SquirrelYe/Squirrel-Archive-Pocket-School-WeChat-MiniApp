@@ -1,29 +1,29 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/form/form",
+    "pages/me/cus_checks/cus_checks",
+    "pages/index/index",
     "pages/me/me",
     "pages/welcome/register/register",
     "pages/me/authenticate/authenticate",
     "pages/me/orders/orders",
     "pages/me/callback/callback",
     "pages/me/cus_orders/cus_orders",
-    "pages/me/cus_checks/cus_checks",
-    "pages/index/index",
     "pages/study/study",
-    "pages/message/message",
     "pages/find/find",
     "pages/text/text",
     "pages/buy/xiadan/xiadan",
     "pages/buy/jiedan/jiedan",
     "pages/talk/talk",
-    "pages/buy_kind/buy_kind"
+    "pages/buy_kind/buy_kind",
+    "pages/message/message"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black",
-    "borderStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "backgroundColor": "#ffffff",

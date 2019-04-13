@@ -2,53 +2,63 @@
 <!-- selector -->
 <view class='selector'>
   <view class='selector_part' bindtap='choose1'>
-      <view class='selector_txt' style='color:{{color1}}'>全部评价</view>
+      <view class='selector_txt' style='color:{{color1}}'>已回复评价</view>
       <view class='border-item' style='background-color:{{color_item1}}'></view>
   </view>
   <view class='selector_part' bindtap='choose2' >
-      <view class='selector_txt' style='color:{{color2}}'>有图评价</view>
+      <view class='selector_txt' style='color:{{color2}}'>未回复评价</view>
       <view class='border-item' style='background-color:{{color_item2}}'></view>
   </view>
 </view>
 
 <!-- items -->
 <scroll-view class='scroll'>
-<view class='items'>
+<view class='items' wx:for="{{callback_item}}" wx:key="item">
   <view class='items_1'>
-    <image class='cus_icon' src='../../../photo/wuhuang.jpg'></image>
-    <view class='cus_txt'>天上的云……</view>
+    <image class='cus_icon' src="{{item.icon_url}}"></image>
+    <view class='cus_txt'>{{item.nickname}}</view>
   </view>
-  <view class='items_2'>08-25 订单类型：普通</view>
-  <view class='items_3'>东西送货挺准时的，给个好评……</view>
+  <block wx:if="{{item.types=='1'}}">
+    <view class='items_2'>{{item.callback_time}} 订单类型：普通</view>
+  </block>
+  <block wx:if="{{item.types=='2'}}">
+    <view class='items_2'>{{item.callback_time}} 订单类型：快递</view>
+  </block>
+  <block wx:if="{{item.types=='3'}}">
+    <view class='items_2'>{{item.callback_time}} 订单类型：外卖</view>
+  </block>
+  <block wx:if="{{item.cus_callback!='0'}}">
+     <view class='items_3'>{{item.cus_callback}}</view>
+  </block>
   <view class='items_4'>
-    <image class='items_4_icon' src='../../../photo/wuhuang.jpg'></image>
+    <image class='items_4_icon' src="{{item.icon_url}}"></image>
     <view class='items_4_main'>
-      <view class='items_4_main_up'>在众创空间买一杯鸳鸯奶茶送到启能斋520宿舍，测试测试……</view>
-      <view class='items_4_main_down'>￥ 6.00</view>
+      <view class='items_4_main_up'>{{item.details}}</view>
+      <view class='items_4_main_down'>￥ {{item.money}}</view>
     </view>
   </view>
   <view class='items_5'>
     <view class='items_5_txt'>浏览0次 点赞0次 评论0次 (测试阶段...)</view>
     <view class='items_5_do'>
       <image class='items_5_icon' src='../../../photo/callback.png'></image>
-      <view class='items_5_callback' bindtap='callback_show'>回复?</view>
+      <view class='items_5_callback' bindtap='callback_show' data-index="{{index}}">回复?</view>
     </view>
   </view>
-  <block wx:if="{{dis_show_callback=='1'}}">
-    <view class='callbacks'>{{callback_txt}}</view>
+  <block wx:if="{{item.tak_callback != null && item.tak_callback !='0'}}">
+    <view class='callbacks'>{{item.tak_callback}}</view>
   </block>
   
 </view>
 
-<block wx:if="{{dis_show_callback=='0'&&dis_callback=='1'}}">
-    <view class='callbacks_input'>
-      <view class='callbacks_input_head'>
-        <image class='callbacks_input_icon' src='../../../photo/jiantouzuo.png' bindtap='cancel'></image>
-        <text class='callbacks_input_icon_txt'>发起回复</text>
-        <text class='callbacks_input_txt' bindtap='send_callback'>回复同学</text>
-      </view>
-      <input class='input' placeholder='回复……' confirm-type='next' bindinput='bindKeyInput' auto-focus bindfocus='f1' bindblur='f2'></input>
+<block wx:if="{{dis_show_callback=='0' && dis_callback=='1'}}">
+  <view class='callbacks_input'>
+    <view class='callbacks_input_head'>
+      <image class='callbacks_input_icon' src='../../../photo/jiantouzuo.png' bindtap='cancel'></image>
+      <text class='callbacks_input_icon_txt'>发起回复</text>
+      <text class='callbacks_input_txt' bindtap='send_callback'>回复同学</text>
     </view>
-  </block>
+    <input class='input' placeholder='回复……' confirm-type='next' bindinput='bindKeyInput' auto-focus bindfocus='f1' bindblur='f2'></input>
+  </view>
+</block>
 
 </scroll-view>

@@ -9,7 +9,7 @@ Page({
     openid: [],
     message: [],
     logs:[],
-    all: [{ openid: 'oIWqt4iGk5GNc_H_JKf3REtjDmMs', message: '------初始化------', time:'------'}],
+    all: [{ openid: 'yexuan', message: '------初始化------', time:'------'}],
     //自己的openid
     openid_me:'',
     openid_you:'',

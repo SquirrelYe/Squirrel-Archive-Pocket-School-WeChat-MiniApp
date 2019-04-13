@@ -1,4 +1,4 @@
-/**index.wxss**/
+@import "../../ripples.wxss";
 .top{
   width: 100%;
   height: 35px;
@@ -116,7 +116,10 @@
 }
 .sc1{
   position: absolute;
-  height: 1190rpx;
+  height: 600px;
+}
+.item{
+  animation: bounceOut 1s;
 }
 .part{
   height: 320rpx;

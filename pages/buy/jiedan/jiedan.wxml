@@ -1,5 +1,5 @@
-<!--pages/buy/jiedan/jiedan.wxml-->
-<!--pages/buy/xiadan/xiadan.wxml-->
+<wxs module="formatTime" src="../../../utils/time.wxs"></wxs>
+
   <view class="top">
     <block wx:if="{{id=='1'}}">
         <text class='yexuan_name'>普通</text>
@@ -67,7 +67,7 @@
           <image class='yexuan' src='../../../photo/money.png'> </image>
           <label class='k-1-1'>{{user.money}}元</label>
           <image class='time' src='../../../photo/time.png'> </image>
-          <label class='k-1-2'>{{user.time}}</label>
+          <label class='k-1-2'>{{formatTime.formatToIndex(time)}}</label>
 
         </view>
         <image class='p-2' src='../../../photo/start.png'></image>
@@ -122,13 +122,15 @@
   </view>
   
   <block wx:if="{{judge==0}}">
-    <view class="bottom" bindtap='get'>
-      <text class='jiedan'>接单</text>
-    </view>
+    <form class="form" bindsubmit="formSubmit" bindtap='get' report-submit='true'>
+      <view class="bottom">
+        <button class='jiedan' form-type='submit'>领取任务</button>
+      </view>
+    </form>
   </block>
+
    <block wx:elif="{{judge==1}}">
      <view class="bottom" bindtap='get_jiedan'>
-      <text class='jiedan'>已被接单</text>
+       <button class='jiedan'>已被他人领取</button>
     </view>
   </block>
-<!--pages/buy/xiadan/xiadan.wxml-->

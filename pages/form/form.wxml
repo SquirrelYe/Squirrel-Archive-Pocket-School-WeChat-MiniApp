@@ -1,0 +1,11 @@
+
+<view class="login-body">
+  <form class="form" bindsubmit="formSubmit" report-submit='true'>
+    <view class='section'>
+      <button type='primary' form-type='submit'>登录</button>
+    </view>
+  </form>
+  <form class='section' bindsubmit="toRegister" report-submit='true'>
+    <button type='default' form-type='submit'>注册</button>
+  </form>
+</view>

@@ -105,4 +105,3 @@
   <view class="bottom" bindtap='buy'>
     <text class='fabu'>发布</text>
   </view>
-<!--pages/buy/xiadan/xiadan.wxml-->

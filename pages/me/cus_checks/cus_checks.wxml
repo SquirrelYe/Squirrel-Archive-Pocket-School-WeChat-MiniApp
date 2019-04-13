@@ -13,8 +13,8 @@
   </view>
   <view class='head_part'>
     <view>
-      <view class='head_part_txt'>分类</view>
-      <image class='head_part_img' src='../../../photo/tangle_down.png'></image>
+      <view class='head_part_txt' bindtap='nv_kind'>分类</view>
+      <image class='head_part_img' src='{{kind}}'></image>
     </view>
   </view>
   <view class='head_part_right' bindtap='nv_search'>
@@ -26,7 +26,7 @@
 <view class='head_sum'>
   <view class='head_sum_left'>
     <view class='head_sum_part'>本月</view>
-    <view class='head_sum_part1'>支出 ￥120.00 收入 ￥100.00</view>
+    <view class='head_sum_part1'>支出 ￥{{totalOutputMoney}}.00  收入 ￥{{totalInputMoney}}.00</view>
   </view>
   <view class='head_sum_right'>
     <image class='calendar' src='../../../photo/calendar.png'></image>
@@ -35,18 +35,41 @@
 
 <!-- main -->
 <scroll-view class='main'>
-  <view class='item'>
+  <view class='item' wx:for="{{checks}}" wx:key="checks">
     <view class='item_left'>
-      <image class='item_left_icon' src='../../../photo/pt.png'></image>
+      <block wx:if="{{item.types=='1'}}">
+        <image class='item_left_icon' src='../../../photo/me_thing.png'></image>
+      </block>
+      <block wx:if="{{item.types=='2'}}">
+        <image class='item_left_icon' src='../../../photo/me_kuaidi.png'></image>
+      </block>
+      <block wx:if="{{item.types=='3'}}">
+        <image class='item_left_icon' src='../../../photo/me_waimai.png'></image>
+      </block>
     </view>
     <view class='item_middle'>
-      <view class='t1'>商品</view>
-      <view class='t2'>[普通]</view>
-      <view class='t3'>08-25 12:14</view>  
+      <view class='t1' selectable='true' space='true'>{{item.details}}</view>
+      <block wx:if="{{item.conditions=='1'}}">
+        <view class='t2' style='color:#ffb366'>待取货</view>
+      </block>
+      <block wx:if="{{item.conditions=='2'}}">
+        <view class='t2'>待送达</view>
+      </block>
+      <block wx:if="{{item.conditions=='3'}}">
+        <view class='t2' style='color:#808080'>待评价</view>
+      </block>
+      <block wx:if="{{item.conditions=='4'}}">
+        <view class='t2' style='color:#808080'>已完成</view>
+      </block>
+      <view class='t3'>{{item.create_time}}</view>  
     </view>
-    <view class='item_right'>-48.00</view>
+    <view class='item_right'>
+    <block wx:if="{{submit_kind=='1'}}">-</block>
+    <block wx:if="{{submit_kind=='2'}}">+</block>
+    {{item.money}} 元</view>
   </view>
 </scroll-view>
+
 <!-- filter -->
 <block wx:if="{{dis=='none'}}">
   <view class='filter'>
@@ -72,6 +95,18 @@
     </view>
   </view>
 </block>
+
+<!-- kind -->
+<block wx:if="{{dis_kind=='none'}}">
+  <view class='filter2'>
+    <view class='title'>支出、收入</view>
+    <view class='parts'>
+      <view class='parts_kind' bindtap='kind_out' style='background-color:{{out_color}}'>支出</view>
+      <view class='parts_kind' bindtap='kind_in' style='background-color:{{in_color}}'>收入</view>
+    </view>
+  </view>
+</block>
+
 <!-- search -->
 <block wx:if="{{dis_search=='none'}}">
   <view class='filter1'>

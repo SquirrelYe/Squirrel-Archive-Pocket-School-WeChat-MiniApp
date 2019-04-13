@@ -92,10 +92,6 @@ Page({
           city: app.globalData.userInfo.province,
           sign: '原来我一直为你停留，甚至忘记了时间。'
         },
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        method: 'GET',
         success: function (res) {
           console.log(res)
           if (res.data.affectedRows==1){

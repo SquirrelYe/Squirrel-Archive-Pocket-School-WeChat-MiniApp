@@ -6,7 +6,7 @@
   height: 136rpx;
   background-color: #fff7e5;
   position: fixed;
-  z-index: 10;
+  z-index: 2;
 }
 .head{
   width: 100%;
@@ -14,7 +14,7 @@
   background-color: white;
   position: fixed;
   margin-top: 136rpx;
-  z-index: 10;
+  z-index: 2;
 }
 .head_sum{
   width: 100%;
@@ -22,6 +22,7 @@
   background-color: rgb(240, 240, 240);
   position: fixed;
   margin-top: 206rpx;
+  z-index: 1;
 }
 
 
@@ -129,9 +130,9 @@
   float: left
 }
 .item_left_icon{
-  height: 85rpx;
-  width: 85rpx;
-  margin: 36rpx;
+  height: 70rpx;
+  width: 70rpx;
+  margin: 44rpx;
 }
 .item_middle{
   height: 110rpx;
@@ -141,11 +142,14 @@
 }
 .t1{
   font-size: 26rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: #404040;
 }
 .t2{
   font-size: 26rpx;
-  color: #404040;
+  color: #07d811;
 }
 .t3{
   font-size: 26rpx;
@@ -158,6 +162,8 @@
   margin-top: 36rpx;
   font-size: 30rpx;
   font-weight: 900;
+  z-index: 2;
+  color:#ffbf00
 }
 
 .filter{
@@ -166,7 +172,7 @@
   position: absolute;
   margin-top: 210rpx;
   background-color: white;
-  z-index: 2;
+  z-index: 1;
   animation: slideInDown 0.5s
 }
 .filter1{
@@ -175,8 +181,27 @@
   position: absolute;
   margin-top: 210rpx;
   background-color: white;
-  z-index: 2;
+  z-index: 1;
   animation: slideInDown 0.5s
+}
+.filter2{
+  width: 100%;
+  height: 250rpx;
+  position: absolute;
+  margin-top: 210rpx;
+  background-color: white;
+  z-index: 1;
+  animation: slideInDown 0.5s
+}
+.parts_kind{
+  width: 40%;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 6%;
+  font-size: 28rpx;
+  justify-content: center;
+  background-color: #f8f8f8
 }
 .title{
   width: 96%;
