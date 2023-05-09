@@ -1,23 +1,22 @@
-# PocketSchool_WeCchat_MiniApp
+# Squirrel-Archive-Pocket-School-WeChat-MiniApp 「布袋校园」
 
-#### 项目介绍
-项目负责人 全栈开发 涵盖用户调研、产品设计、前端、后端和后期维护。组件化编写，后端运用 Java 并使用 nginx 进行负载均衡。
+> 🌚 警告：这个仓库包含了一个古老的项目，它可能已经无法在现代环境中正常运行。我们保留这个仓库是为了记录历史，但是请注意，如果你尝试使用这个项目，可能会遇到各种问题和兼容性问题。
 
-#### 软件架构
-HTML5 css3 JavaScript java nginx
+### 项目归档
 
+- Author: 风继续吹 <ceo@yexuan.site>
+- Date:   Sun Aug 26 18:54:08 2018 +0800
 
-#### 安装教程
+### 项目简介
 
-导入项目到微信小程序开发工具  服务器端使用Tomcat执行，然后nginx负载均衡
+这个项目是2018年「大二」和天津职业技术师范大学的同学一起完成的，是一个服务于校园的一站式平台，项目包含了一个微信小程序、一个后台管理系统和一个后端服务。当前项目已经归档，不再维护。
 
-#### 使用说明
+### 项目贡献
 
-1. 使用前注意代理网络
-2. 跨域访问
-3. 验证SSL证书
+虽然这个项目已经很古老，但我们仍然欢迎对其进行改进和维护。如果你对这个项目感兴趣，可以：
 
-#### 参与贡献
-
-1. 叶武（yexuan）
-2. 天津知境网络科技
+1. Fork 这个仓库
+2. 创建你的特性分支 (git checkout -b my-new-feature)
+3. 提交你的更改 (git commit -am 'Add some feature')
+4. 将你的更改推送到特性分支 (git push origin my-new-feature)
+5. 创建一个新的 Pull Request

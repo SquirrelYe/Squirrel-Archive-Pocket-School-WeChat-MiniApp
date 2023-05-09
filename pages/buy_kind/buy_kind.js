@@ -1,29 +1,27 @@
 // pages/buy_kind.js
 Page({
-
   data: {
-    dis_part:'0'
+    dis_part: '0'
   },
-  quit:function(){
-    
+  quit: function () {
     wx.switchTab({
-      url: '../index/index',
-    })
+      url: '../index/index'
+    });
   },
   putong: function () {
     wx.navigateTo({
       url: '../buy/xiadan/xiadan?type=1'
-    })
+    });
   },
   kuaidi: function () {
     wx.navigateTo({
       url: '../buy/xiadan/xiadan?type=2'
-    })
+    });
   },
   waimai: function () {
     wx.navigateTo({
       url: '../buy/xiadan/xiadan?type=3'
-    })
+    });
   },
   /**
    * 生命周期函数--监听页面加载
@@ -35,9 +33,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -63,21 +59,15 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
-  }
-})
+  onShareAppMessage: function () {}
+});

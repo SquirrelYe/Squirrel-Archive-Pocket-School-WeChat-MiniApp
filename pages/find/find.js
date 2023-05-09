@@ -1,9 +1,7 @@
-const app = getApp()
+const app = getApp();
 Page({
-
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo')
-    
   },
 
   onLoad: function (options) {
@@ -24,14 +22,13 @@ Page({
       title: '风继续吹<_> 期待ing……',
       icon: 'none',
       duration: 1000
-    }) 
+    });
   },
   bindGetUserInfo: function (e) {
-    console.log(e.detail.userInfo)
+    console.log(e.detail.userInfo);
   },
- 
 
-  primary:function(){
+  primary: function () {
     //上传用户openid到服务器
     // wx.request({
     //   url: 'https://www.yexuan.site/Logistics_yx/users',
@@ -58,7 +55,7 @@ Page({
       url: 'https://www.yexuan.site/Logistics_yx/users',
       data: {
         judge: '0',
-        openid: app.globalData.openid,//'oIWqt4rv8LnPDduNsUJNgStvnysI',
+        openid: app.globalData.openid //'oIWqt4rv8LnPDduNsUJNgStvnysI',
         // name: app.globalData.userInfo.nickName,
         // icon_url: app.globalData.userInfo.avatarUrl,
         // age: '20',
@@ -72,8 +69,8 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        console.log(res)
+        console.log(res);
       }
-    })
+    });
   }
-})
+});
